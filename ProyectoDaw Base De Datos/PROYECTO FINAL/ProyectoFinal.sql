@@ -3,7 +3,7 @@ USE m_Proyecto;
 
 CREATE TABLE Elementos (
    `CodigoE` INTEGER(10) NOT NULL,
-    `Nombre` VARCHAR(15) DEFAULT NULL,
+    `Nombre` VARCHAR(25) DEFAULT NULL,
     `Descripcion` VARCHAR(150) DEFAULT NULL,
     `Stock` NUMERIC(10) DEFAULT NULL,
     `Precio` NUMERIC(10) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Hardware (
  
 CREATE TABLE Software (
     `CodigoSW` INTEGER(10) NOT NULL,
-    `Nombre` VARCHAR(15) DEFAULT NULL,
+    `Nombre` VARCHAR(30) DEFAULT NULL,
     `Descripcion` VARCHAR(150) DEFAULT NULL,
     `Version` NUMERIC(10) DEFAULT NULL,
     `Licencia` VARCHAR(5) DEFAULT NULL,
@@ -68,12 +68,12 @@ INDEX Equipo_FKIndex3 (`CodigoSW`),
          
 CREATE TABLE Proveedores (
 `CodigoP` INTEGER(10) NOT NULL,
-`Nombre` VARCHAR(15) DEFAULT NULL,
+`Nombre` VARCHAR(30) DEFAULT NULL,
 `Direccion` VARCHAR(25) DEFAULT NULL,
 `Poblacion` VARCHAR(25) DEFAULT NULL,
-`Telefono` NUMERIC(9) DEFAULT NULL,
+`Telefono` CHAR(9) DEFAULT NULL,
 `Contacto` VARCHAR(15) DEFAULT NULL,
-`PaginaWeb` VARCHAR(25) DEFAULT NULL,
+`PaginaWeb` VARCHAR(35) DEFAULT NULL,
 `CorreoElectronico` VARCHAR(25) DEFAULT NULL,
     PRIMARY KEY (`CodigoP`)
 ); 
@@ -163,14 +163,14 @@ CREATE TABLE Ubicacion (
     `Nombre` VARCHAR(15) DEFAULT NULL,
  `Descripcion` VARCHAR(150) DEFAULT NULL,
  `Ubicacion` VARCHAR(15) DEFAULT NULL,
- `Planta` VARCHAR(1) DEFAULT NULL,
+ `Planta` CHAR(1) DEFAULT NULL,
     
     PRIMARY KEY (`CodigoUbicacion`)
 );
 
 CREATE TABLE Estado (
     `CodigoEstado` INTEGER(10) NOT NULL,
-    `Estado` VARCHAR(5) DEFAULT NULL,
+    `Estado` VARCHAR(11) DEFAULT NULL,
     PRIMARY KEY (`CodigoEstado`)
 );
 
@@ -257,9 +257,119 @@ CREATE TABLE Enviar (
 PRIMARY KEY (`RecibidoPor`)
 );
 
+INSERT INTO Elementos(`CodigoE`,`Nombre`,`Descripcion`, `Stock`,`Precio`, `Categoria`)  
+VALUES (10001, 'Ordenadores Windows' ,'', '15',125,'Hardware'),
+	   (10002, 'Pantallas ','', '22',55,'Hardware');
+       
+       
+INSERT INTO Hardware(`CodigoSW`,`Nombre`,`Descripcion`, `Unidades`,`Año`, `Precio`)  
+VALUES (20001, 'CPU' ,'', 12,2008, 145),
+	   (20002, 'Tarjeta Grafica ','', 5,2011, 615);
+       
+       
+INSERT INTO Software(`CodigoHW`,`Nombre`,`Descripcion`, `Version`,`Licencia`, `Caducidad`, `Unidades`, `Precio`)  
+VALUES (30001, 'Windows 10 Enterprise' ,'', 10.1, 'OS', 20/01/2019, 5, 300),
+	   (30002, 'Skype','', 2.2,'DOS', 31/8/2058, 70, 25);
+       
+       
+INSERT INTO CHardware(`CodigoCHW`,`Nombre`,`Tamaño`, `Tipo`,`Descripcion`)  
+VALUES (40001, 'PCB' ,1000, 'PCB',''),
+	   (40002, 'CPU ',25, 'CPU','');
+       
+       
+INSERT INTO Equipo(`CodigoEIO`,`CodigoCHW`,`CodigoSW`, `Observaciones`)  
+VALUES (50001, 40001 ,30001, ''),
+	   (50002, 40002,30001, '');
+       
+       
+INSERT INTO Proveedores(`CodigoP`,`Nombre`,`Direccion`, `Poblacion`,`Telefono`, `Contacto`, `PaginaWeb`, `CorreoElectronico`)  
+VALUES (60001, 'BEEP Informática' ,'Nila', 'Monforte del Cid',968434236, '', 'www.BEEP.com', 'beepI@gmail.com'),
+	   (60002, 'PCBOX ','Mira', 'Petrer',659898125,'','www.PCBOX.com','PCBOX@gmail.com' );
+       
+       
+INSERT INTO Empleado(`IdentificadorE`,`Contraseña`)  
+VALUES (70001, '*******' ),
+(70002, '*******' ),
+(70003, '*******' ),
+(70004, '*******' ),
+(70005, '*******' ),
+(70006, '*******' );
+
+	   
+       
+       
+INSERT INTO Registro(`CodigoP`,`CodigoE`,`IdentificadorE`, `Fecha`,`Lista`)  
+VALUES (60001, 10001 ,70001, 31/1/2017,''),
+	   (60002, 10002,70002, 2/2/2017,'');
+      
+
+INSERT INTO Roles(`RolR`,`Descripcion`)  
+VALUES (80001, '' ),
+(80002, '' ),
+(80003, '' ),
+(80004, '' ),
+(80005, '' ),
+	   (80006, '');
+       
+       
+       
+INSERT INTO Tiene(`IdentificadorE`,`RolR`)  
+VALUES (70001,80001),
+(70002, 80002),
+(70003,80003),
+(70004, 80004),
+(70005, 80005),
+	   (70006, 80006);
+       
+       
+INSERT INTO Usuario(`IdentificadorU`)  
+VALUES (90001),
+	   (90002);
+       
+       
+INSERT INTO JefeDepartamento(`IdentificadorJ`, `IdentificadorE`)  
+VALUES (100001, 70001),
+	   (100002, 70002);
+       
+
+INSERT INTO Solicitud(`IdentificadorU`,`IdentificadorJ`,`Articulo`, `Motivo`)  
+VALUES (20001, 100001 ,'', ''),
+	   (20002, 100002,'', '');
+       
+
+ INSERT INTO Profesor(`IdentificadorP`, `IdentificadorE`)  
+VALUES (110001, 70003),
+	   (110002, 70004);
+       
+      
+   INSERT INTO Ubicacion(`CodigoUbicacion`,`Nombre`,`Descripcion`, `Ubicacion`, `Planta`)  
+VALUES (120001, 'Aula221' ,'', 'Segundo Edificio',2),
+	   (120002, 'Aula211 ','', 'Segundo Edificio',2);
+       
    
+   INSERT INTO Estado(`CodigoEstado`, `Estado`)  
+VALUES (130001, 'Pendiente' ),
+	   (130002, 'En Proceso'),
+       (130003, 'Finalizado');
+       
+       
+       
+INSERT INTO Resolucion(`CodigoResolucion`, `FechaResolucion`, `Observaciones`)  
+VALUES (140001, 8/8/2008,''),
+	   (140002, 23/12/2012, '');
+       
    
-   
-   
-   
+INSERT INTO TicketIncidencia(`CodigoT`,`Fecha`,`Descripcion`, `Elemento`,`Material`, `NivelUrgencia`, `Categoria`, `IdentificadorP`,`CodigoUbicacion`,`CodigoEstado`,`CodigoResolucion`, `IdentificadorU` )  
+VALUES (150001,12/12/2007 ,'', '','','','',110001,120001,130002,140001,90001),
+	   (150002,1/2/2013,'', '','','','',110002,120002,130002,140002,90002);
+       
+       
+INSERT INTO Tecnico(`IdentificadorT`, `IdentificadorE`)  
+VALUES (160001, 70005),
+	   (160002, 70006);
+       
+       
+INSERT INTO Mensaje(`CodigoMensaje`,`Asunto`,`Cuerpo`, `Fecha`,`EnviadoPor`, `RecibidoPor`)  
+VALUES (170001, '' ,'', 21/12/2007,160001,110001),
+	   (170002, ' ','', 3/2/2013,160001,110002);
    
