@@ -14,7 +14,7 @@ CREATE TABLE Elementos (
 
 CREATE TABLE Hardware (
 `CodigoHW` INTEGER(10) NOT NULL,
-`Nombre` VARCHAR(15) NOT NULL,
+`Nombre` VARCHAR(30) NOT NULL,
 `Descripcion` VARCHAR(150) DEFAULT NULL,
 `Unidades` NUMERIC(10) NOT NULL,
 `Año` NUMERIC(4) DEFAULT NULL,
@@ -239,22 +239,12 @@ CREATE TABLE Mensaje (
     PRIMARY KEY (`CodigoMensaje`),
 INDEX Mensaje_FKIndex16 (`EnviadoPor`),
     FOREIGN KEY (`EnviadoPor`)
-        REFERENCES Tecnico (`IdentificadorT`)
+        REFERENCES Empleado (`IdentificadorE`)
         ON UPDATE CASCADE ON DELETE RESTRICT,
 INDEX Mensaje_FKIndex17 (`RecibidoPor`),
     FOREIGN KEY (`RecibidoPor`)
-        REFERENCES Profesor (`IdentificadorP`)
+        REFERENCES Empleado (`IdentificadorE`)
         ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE Recibir (
-    `EnviadoPor` INTEGER(10) NOT NULL,
-PRIMARY KEY (`EnviadoPor`)
-);
-
-CREATE TABLE Enviar (
-     `RecibidoPor` INTEGER(10) NOT NULL,
-PRIMARY KEY (`RecibidoPor`)
 );
 
 INSERT INTO Elementos(`CodigoE`,`Nombre`,`Descripcion`, `Stock`,`Precio`, `Categoria`)  
