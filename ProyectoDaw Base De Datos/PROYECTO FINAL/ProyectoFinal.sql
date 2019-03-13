@@ -92,13 +92,13 @@ CREATE TABLE Registro (
     `Fecha` DATE DEFAULT NULL,
     `Lista` VARCHAR(250) DEFAULT NULL,
     PRIMARY KEY (`IdentificadorE`, `CodigoP`,`CodigoE`),
-    INDEX Registro_FKIndex4 (`CodigoP`),
+    INDEX Registro_FKIndex4 (`CodigoP`),..
     FOREIGN KEY (`CodigoP`)
         REFERENCES Proveedores (`CodigoP`)
         ON UPDATE CASCADE ON DELETE RESTRICT,
     INDEX Registro_FKIndex5 (`CodigoE`),
     FOREIGN KEY (`CodigoE`)
-        REFERENCES Elementos (`CodigoE`)
+        REFERENCES Elementos (`CodigoE`).
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
@@ -360,6 +360,6 @@ VALUES (160001, 70005),
        
        
 INSERT INTO Mensaje(`CodigoMensaje`,`Asunto`,`Cuerpo`, `Fecha`,`EnviadoPor`, `RecibidoPor`)  
-VALUES (170001, '' ,'', 21/12/2007,160001,110001),
-	   (170002, ' ','', 3/2/2013,160001,110002);
+VALUES (170001, '' ,'', 21/12/2007,70005,70003),
+	   (170002, ' ','', 3/2/2013,70006,70002);
    
