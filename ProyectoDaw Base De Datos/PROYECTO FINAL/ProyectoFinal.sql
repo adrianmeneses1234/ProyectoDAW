@@ -92,13 +92,13 @@ CREATE TABLE Registro (
     `Fecha` DATE DEFAULT NULL,
     `Lista` VARCHAR(250) DEFAULT NULL,
     PRIMARY KEY (`IdentificadorE`, `CodigoP`,`CodigoE`),
-    INDEX Registro_FKIndex4 (`CodigoP`),..
+    INDEX Registro_FKIndex4 (`CodigoP`),
     FOREIGN KEY (`CodigoP`)
         REFERENCES Proveedores (`CodigoP`)
         ON UPDATE CASCADE ON DELETE RESTRICT,
     INDEX Registro_FKIndex5 (`CodigoE`),
     FOREIGN KEY (`CodigoE`)
-        REFERENCES Elementos (`CodigoE`).
+        REFERENCES Elementos (`CodigoE`)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
@@ -162,7 +162,7 @@ CREATE TABLE Ubicacion (
     `CodigoUbicacion` INTEGER(10) NOT NULL,
     `Nombre` VARCHAR(15) DEFAULT NULL,
  `Descripcion` VARCHAR(150) DEFAULT NULL,
- `Ubicacion` VARCHAR(15) DEFAULT NULL,
+ `Ubicacion` VARCHAR(25) DEFAULT NULL,
  `Planta` CHAR(1) DEFAULT NULL,
     
     PRIMARY KEY (`CodigoUbicacion`)
@@ -185,7 +185,7 @@ CREATE TABLE TicketIncidencia (
     `CodigoT` INTEGER(10) NOT NULL,
     `Fecha` DATE DEFAULT NULL,
  `Descripcion` VARCHAR(150) DEFAULT NULL,
- `Elemento` VARCHAR(15) DEFAULT NULL,
+ `Elemento` VARCHAR(50) DEFAULT NULL,
  `Material` VARCHAR(15) DEFAULT NULL,
  `NivelUrgencia` VARCHAR(15) DEFAULT NULL,
  `Categoria` VARCHAR(15) DEFAULT NULL,
@@ -231,7 +231,7 @@ INDEX Tecnico_FKIndex15 (`IdentificadorE`),
 
 CREATE TABLE Mensaje (
      `CodigoMensaje` INTEGER(10) NOT NULL,
-    `Asunto` VARCHAR(20) DEFAULT NULL,
+    `Asunto` VARCHAR(50) DEFAULT NULL,
 `Cuerpo` VARCHAR(250) DEFAULT NULL,
 `Fecha` DATE DEFAULT NULL,
 `EnviadoPor`  INTEGER(10) NOT NULL,
@@ -252,12 +252,12 @@ VALUES (10001, 'Ordenadores Windows' ,'Ordenadores con sistema operativo Windows
 	   (10002, 'Pantallas ','Pantallas que nos ayudarán a visualizar mejor el trabajo', '22',55,'Hardware');
        
        
-INSERT INTO Hardware(`CodigoSW`,`Nombre`,`Descripcion`, `Unidades`,`Año`, `Precio`)  
+INSERT INTO Hardware(`CodigoHW`,`Nombre`,`Descripcion`, `Unidades`,`Año`, `Precio`)  
 VALUES (20001, 'CPU' ,'Ayuda para mejorar el rendimiento general de nuestro ordenador', 12,2008, 145),
 	   (20002, 'Tarjeta Grafica ','mayor rendimiento en el ámbito gráfico para nuestras computadoras', 5,2011, 615);
        
        
-INSERT INTO Software(`CodigoHW`,`Nombre`,`Descripcion`, `Version`,`Licencia`, `Caducidad`, `Unidades`, `Precio`)  
+INSERT INTO Software(`CodigoSW`,`Nombre`,`Descripcion`, `Version`,`Licencia`, `Caducidad`, `Unidades`, `Precio`)  
 VALUES (30001, 'Windows 10 Enterprise' ,'Version de windows 10 orientada a empresas', 10.1, 'OS', 20/01/2019, 5, 300),
 	   (30002, 'Skype','Software capaz de comunicarnos con otras personas mediante videollamada', 2.2,'DOS', 31/8/2058, 70, 25);
        
@@ -289,8 +289,8 @@ VALUES (70001, '*******' ),
        
        
 INSERT INTO Registro(`CodigoP`,`CodigoE`,`IdentificadorE`, `Fecha`,`Lista`)  
-VALUES (60001, 10001 ,70001, 31/1/2017,'Ordenadores'),
-	   (60002, 10002,70002, 2/2/2017,'Pantallas ');
+VALUES (60001, 10001 ,70001, 31/1/2017,''),
+	   (60002, 10002,70002, 2/2/2017,'');
       
 
 INSERT INTO Roles(`RolR`,`Descripcion`)  
@@ -357,8 +357,8 @@ VALUES (140001, 8/8/2008,'Pendiente de evolucion'),
        
    
 INSERT INTO TicketIncidencia(`CodigoT`,`Fecha`,`Descripcion`, `Elemento`,`Material`, `NivelUrgencia`, `Categoria`, `IdentificadorP`,`CodigoUbicacion`,`CodigoEstado`,`CodigoResolucion`, `IdentificadorU` )  
-VALUES (150001,12/12/2007 ,'', 'Torre de Ordenador','Hardware','Alta','',110001,120001,130002,140001,90001),
-	   (150002,1/2/2013,'', 'Raton','Hardware','Baja','',110002,120002,130002,140002,90002);
+VALUES (150001,12/12/2007 ,'La caja de la torre se encontró destrozada', 'Torre de Ordenador','Hardware','Alta','Hardware',110001,120001,130002,140001,90001),
+	   (150002,1/2/2013,'No se encuentra el raton de una torre de la clse 211', 'Raton','Hardware','Baja','Hardware',110002,120002,130002,140002,90002);
        
        
 INSERT INTO Tecnico(`IdentificadorT`, `IdentificadorE`)  
