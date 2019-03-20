@@ -268,8 +268,8 @@ VALUES (40001, 'PCB' ,1000, 'PCB',''),
        
        
 INSERT INTO Equipo(`CodigoEIO`,`CodigoCHW`,`CodigoSW`, `Observaciones`)  
-VALUES (50001, 40001 ,30001, ''),
-	   (50002, 40002,30001, '');
+VALUES (50001, 40001 ,30001, 'Un Ordenador con Windows 10 Enterprise funcionando a pleno rendimiento y PCB'),
+	   (50002, 40002,30001, 'Un ordenador con Software Windows 10 Enterprise funcionando a pleno rendimiento con una CPU de 25TB');
        
        
 INSERT INTO Proveedores(`CodigoP`,`Nombre`,`Direccion`, `Poblacion`,`Telefono`, `Contacto`, `PaginaWeb`, `CorreoElectronico`)  
@@ -294,12 +294,19 @@ VALUES (60001, 10001 ,70001, 31/1/2017,''),
       
 
 INSERT INTO Roles(`RolR`,`Descripcion`)  
-VALUES (80001, '' ),
-(80002, '' ),
-(80003, '' ),
-(80004, '' ),
-(80005, '' ),
-	   (80006, '');
+VALUES (80001, 'Consultar proveedores' ),
+(80002, 'Consultar inventario y 
+artículos no inventariable' ),
+(80003, 'Consultar y crear incidencias' ),
+(80004, 'Manipular proveedores' ),
+(80005, 'Manipular inventario y resto 
+de artículos' ),
+(80006, 'Lanzar peticiones de compra'),
+(80007, 'Gestionar pedidos'),
+(80008, 'Gestionar uso de material'),
+(80009, 'Gestionar ubicaciones'),
+(80010, 'Gestión de usuario'),
+(80011, 'Resolver incidencias');
        
        
        
@@ -323,8 +330,8 @@ VALUES (100001, 70001),
        
 
 INSERT INTO Solicitud(`IdentificadorU`,`IdentificadorJ`,`Articulo`, `Motivo`)  
-VALUES (20001, 100001 ,'', ''),
-	   (20002, 100002,'', '');
+VALUES (20001, 100001 ,'Torre de Ordenador', 'El Ordenador dejó de funcionar'),
+	   (20002, 100002,'Raton', 'No se encuentra el ratón');
        
 
  INSERT INTO Profesor(`IdentificadorP`, `IdentificadorE`)  
@@ -333,8 +340,8 @@ VALUES (110001, 70003),
        
       
    INSERT INTO Ubicacion(`CodigoUbicacion`,`Nombre`,`Descripcion`, `Ubicacion`, `Planta`)  
-VALUES (120001, 'Aula221' ,'', 'Segundo Edificio',2),
-	   (120002, 'Aula211 ','', 'Segundo Edificio',2);
+VALUES (120001, 'Aula221' ,'En el Aula de Daw en la segunda Planta', 'Segundo Edificio',2),
+	   (120002, 'Aula211','En la entrada de la clase, primer ordenador', 'Segundo Edificio',2);
        
    
    INSERT INTO Estado(`CodigoEstado`, `Estado`)  
@@ -345,13 +352,13 @@ VALUES (130001, 'Pendiente' ),
        
        
 INSERT INTO Resolucion(`CodigoResolucion`, `FechaResolucion`, `Observaciones`)  
-VALUES (140001, 8/8/2008,''),
-	   (140002, 23/12/2012, '');
+VALUES (140001, 8/8/2008,'Pendiente de evolucion'),
+	   (140002, 23/12/2012, 'No se encuentra el error');
        
    
 INSERT INTO TicketIncidencia(`CodigoT`,`Fecha`,`Descripcion`, `Elemento`,`Material`, `NivelUrgencia`, `Categoria`, `IdentificadorP`,`CodigoUbicacion`,`CodigoEstado`,`CodigoResolucion`, `IdentificadorU` )  
-VALUES (150001,12/12/2007 ,'', '','','','',110001,120001,130002,140001,90001),
-	   (150002,1/2/2013,'', '','','','',110002,120002,130002,140002,90002);
+VALUES (150001,12/12/2007 ,'', 'Torre de Ordenador','Hardware','Alta','',110001,120001,130002,140001,90001),
+	   (150002,1/2/2013,'', 'Raton','Hardware','Baja','',110002,120002,130002,140002,90002);
        
        
 INSERT INTO Tecnico(`IdentificadorT`, `IdentificadorE`)  
@@ -360,6 +367,6 @@ VALUES (160001, 70005),
        
        
 INSERT INTO Mensaje(`CodigoMensaje`,`Asunto`,`Cuerpo`, `Fecha`,`EnviadoPor`, `RecibidoPor`)  
-VALUES (170001, '' ,'', 21/12/2007,70005,70003),
-	   (170002, ' ','', 3/2/2013,70006,70002);
+VALUES (170001, 'Urgencia Reparaciones' ,'Se requiere que repares la torre de inmediato', 21/12/2007,70005,70003),
+	   (170002, 'Duda','¿Sabes algo sobre el material perdido en el aula 221?', 3/2/2013,70006,70002);
    
