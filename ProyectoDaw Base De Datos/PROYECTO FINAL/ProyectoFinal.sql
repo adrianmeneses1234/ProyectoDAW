@@ -248,23 +248,23 @@ INDEX Mensaje_FKIndex17 (`RecibidoPor`),
 );
 
 INSERT INTO Elementos(`CodigoE`,`Nombre`,`Descripcion`, `Stock`,`Precio`, `Categoria`)  
-VALUES (10001, 'Ordenadores Windows' ,'', '15',125,'Hardware'),
-	   (10002, 'Pantallas ','', '22',55,'Hardware');
+VALUES (10001, 'Ordenadores Windows' ,'Ordenadores con sistema operativo Windows listos para funcionar', '15',125,'Hardware'),
+	   (10002, 'Pantallas ','Pantallas que nos ayudarán a visualizar mejor el trabajo', '22',55,'Hardware');
        
        
 INSERT INTO Hardware(`CodigoSW`,`Nombre`,`Descripcion`, `Unidades`,`Año`, `Precio`)  
-VALUES (20001, 'CPU' ,'', 12,2008, 145),
-	   (20002, 'Tarjeta Grafica ','', 5,2011, 615);
+VALUES (20001, 'CPU' ,'Ayuda para mejorar el rendimiento general de nuestro ordenador', 12,2008, 145),
+	   (20002, 'Tarjeta Grafica ','mayor rendimiento en el ámbito gráfico para nuestras computadoras', 5,2011, 615);
        
        
 INSERT INTO Software(`CodigoHW`,`Nombre`,`Descripcion`, `Version`,`Licencia`, `Caducidad`, `Unidades`, `Precio`)  
-VALUES (30001, 'Windows 10 Enterprise' ,'', 10.1, 'OS', 20/01/2019, 5, 300),
-	   (30002, 'Skype','', 2.2,'DOS', 31/8/2058, 70, 25);
+VALUES (30001, 'Windows 10 Enterprise' ,'Version de windows 10 orientada a empresas', 10.1, 'OS', 20/01/2019, 5, 300),
+	   (30002, 'Skype','Software capaz de comunicarnos con otras personas mediante videollamada', 2.2,'DOS', 31/8/2058, 70, 25);
        
        
 INSERT INTO CHardware(`CodigoCHW`,`Nombre`,`Tamaño`, `Tipo`,`Descripcion`)  
-VALUES (40001, 'PCB' ,1000, 'PCB',''),
-	   (40002, 'CPU ',25, 'CPU','');
+VALUES (40001, 'PCB' ,1000, 'PCB','Conecta aquellos elementos electronicos con circuitos electronicos'),
+	   (40002, 'CPU ',25, 'CPU','Ayuda para mejorar el rendimiento general de nuestro ordenador');
        
        
 INSERT INTO Equipo(`CodigoEIO`,`CodigoCHW`,`CodigoSW`, `Observaciones`)  
