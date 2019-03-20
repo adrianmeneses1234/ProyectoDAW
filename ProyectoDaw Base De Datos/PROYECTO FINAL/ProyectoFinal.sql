@@ -273,8 +273,8 @@ VALUES (50001, 40001 ,30001, 'Un Ordenador con Windows 10 Enterprise funcionando
        
        
 INSERT INTO Proveedores(`CodigoP`,`Nombre`,`Direccion`, `Poblacion`,`Telefono`, `Contacto`, `PaginaWeb`, `CorreoElectronico`)  
-VALUES (60001, 'BEEP Informática' ,'Nila', 'Monforte del Cid',968434236, '', 'www.BEEP.com', 'beepI@gmail.com'),
-	   (60002, 'PCBOX ','Mira', 'Petrer',659898125,'','www.PCBOX.com','PCBOX@gmail.com' );
+VALUES (60001, 'BEEP Informática' ,'Nila', 'Monforte del Cid',968434236, 'Juan', 'www.BEEP.com', 'beepI@gmail.com'),
+	   (60002, 'PCBOX ','Mira', 'Petrer',659898125,'Pepe','www.PCBOX.com','PCBOX@gmail.com' );
        
        
 INSERT INTO Empleado(`IdentificadorE`,`Contraseña`)  
@@ -289,8 +289,8 @@ VALUES (70001, '*******' ),
        
        
 INSERT INTO Registro(`CodigoP`,`CodigoE`,`IdentificadorE`, `Fecha`,`Lista`)  
-VALUES (60001, 10001 ,70001, 31/1/2017,''),
-	   (60002, 10002,70002, 2/2/2017,'');
+VALUES (60001, 10001 ,70001, 31/1/2017,'Ordenadores'),
+	   (60002, 10002,70002, 2/2/2017,'Pantallas ');
       
 
 INSERT INTO Roles(`RolR`,`Descripcion`)  
