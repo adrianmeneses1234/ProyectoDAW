@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="14.0" layoutY="344.0" mnemonicParsing="false" text="Añadir" />
+      <Button layoutX="244.0" layoutY="344.0" mnemonicParsing="false" text="Modificar" />
+      <Button layoutX="477.0" layoutY="344.0" mnemonicParsing="false" text="Eliminar" />
+      <ListView layoutX="14.0" layoutY="14.0" prefHeight="317.0" prefWidth="112.0" />
+      <TableView layoutX="144.0" layoutY="14.0" prefHeight="317.0" prefWidth="429.0">
+        <columns>
+          <TableColumn prefWidth="130.0" text="Identificador" />
+          <TableColumn minWidth="9.0" prefWidth="91.0" text="Nombre" />
+            <TableColumn prefWidth="117.0" text="Contraseña" />
+            <TableColumn prefWidth="90.0" text="Rol " />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
