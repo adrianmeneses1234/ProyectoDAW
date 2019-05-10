@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionSoftwareController">
+   <children>
+      <TableView fx:id="tabla" layoutX="249.0" layoutY="18.0" prefHeight="366.0" prefWidth="646.0">
+        <columns>
+          <TableColumn fx:id="codigo" prefWidth="76.0" text="Codigo" />
+          <TableColumn fx:id="nombre" prefWidth="74.0" text="Nombre" />
+            <TableColumn fx:id="descripcion" prefWidth="106.0" text="Descripcion" />
+            <TableColumn fx:id="version" prefWidth="77.0" text="Version" />
+            <TableColumn fx:id="licencia" prefWidth="68.0" text="Licencia" />
+            <TableColumn fx:id="caducidad" prefWidth="89.0" text="Caducidad" />
+            <TableColumn fx:id="precio" prefWidth="70.0" text="Precio" />
+            <TableColumn fx:id="unidades" prefWidth="85.0" text="Unidades" />
+        </columns>
+      </TableView>
+      <TextField fx:id="codigoInput" layoutX="45.0" layoutY="52.0" />
+      <Button fx:id="añadir" layoutX="273.0" layoutY="410.0" mnemonicParsing="false" onAction="#AñadirSoftware" text="Añadir Software" />
+      <TextField fx:id="nombreInput" layoutX="45.0" layoutY="106.0" />
+      <TextField fx:id="descripcionInput" layoutX="45.0" layoutY="157.0" />
+      <TextField fx:id="versionInput" layoutX="45.0" layoutY="212.0" />
+      <TextField fx:id="LicenciaInput" layoutX="45.0" layoutY="261.0" />
+      <Label layoutX="58.0" layoutY="37.0" text="Codigo" />
+      <Label layoutX="53.0" layoutY="91.0" text="Nombre" />
+      <Label layoutX="53.0" layoutY="142.0" text="Descripcion" />
+      <Label layoutX="53.0" layoutY="193.0" text="Version" />
+      <Label layoutX="58.0" layoutY="246.0" text="Licencia" />
+      <Button fx:id="eliminar" layoutX="719.0" layoutY="410.0" mnemonicParsing="false" onAction="#EliminarSoftware" text="Eliminar Software" />
+      <Label layoutX="57.0" layoutY="293.0" text="Caducidad" />
+      <Label layoutX="61.0" layoutY="340.0" text="Precio" />
+      <TextField fx:id="caducidadInput" layoutX="45.0" layoutY="308.0" />
+      <TextField fx:id="precioInput" layoutX="45.0" layoutY="355.0" />
+      <Button fx:id="modificar" layoutX="473.0" layoutY="410.0" mnemonicParsing="false" onAction="#ModificarSoftware" text="Modificar Software" />
+      <Label layoutX="60.0" layoutY="384.0" text="Unidades" />
+      <TextField fx:id="unidadesInput" layoutX="41.0" layoutY="410.0" />
+   </children>
+</Pane>
