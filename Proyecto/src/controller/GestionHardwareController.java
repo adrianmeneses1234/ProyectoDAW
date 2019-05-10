@@ -13,7 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class GestionHardwareController implements Initializable {
+public class GestionHardwareController {
 	
 	
 	@FXML
@@ -70,11 +70,6 @@ private void Modificar(ActionEvent event) {
 		
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 
 }

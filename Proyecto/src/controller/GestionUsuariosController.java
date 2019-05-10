@@ -1,8 +1,6 @@
 package controller;
 
-import dto.HardwareDTO;
 import dto.LoginDTO;
-import dto.SoftwareDTO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
