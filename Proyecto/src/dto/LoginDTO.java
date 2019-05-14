@@ -1,16 +1,18 @@
 package dto;
 
 public class LoginDTO {
+	private int identificador;
 	private String usuario;
 	private  String contraseña;
 	private String roles;
 	
 	public LoginDTO() {
+		this.identificador=0;
 		this.usuario="";
 		this.contraseña="";
 		this.roles="";
 	}
-	public LoginDTO(String usuario, String contraseña, String roles) {
+	public LoginDTO(int identificador,String usuario, String contraseña, String roles) {
 		this.usuario=usuario;
 		this.contraseña=contraseña;
 		this.roles=roles;
@@ -34,9 +36,17 @@ public class LoginDTO {
 	public void setRoles(String roles) {
 		this.roles = roles;
 	}
+	
+	public int getIdentificador() {
+		return identificador;
+	}
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
 	@Override
 	public String toString() {
-		return "LoginDTO [usuario=" + usuario + ", contraseña=" + contraseña + ", roles=" + roles + "]";
+		return "LoginDTO [identificador=" + identificador + ", usuario=" + usuario + ", contraseña=" + contraseña
+				+ ", roles=" + roles + "]";
 	}
 	
 
