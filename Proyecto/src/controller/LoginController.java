@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.jdbcLoginDAO;
 
 public class LoginController implements Initializable {
     
@@ -33,18 +34,24 @@ public class LoginController implements Initializable {
     @FXML
     private Label invalid_label;
     
+    
+    private jdbcLoginDAO base;
+	private Statement statement;
+	private Connection conexion;
+	private ResultSet rs;
+
+
+    
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         
-        
-            System.out.println("DO IT");
             Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/view/selectorMenu.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             
             if (isValidCredentials())
             {
-                app_stage.hide(); //optional
+                app_stage.hide();
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             }
@@ -52,46 +59,42 @@ public class LoginController implements Initializable {
             {
                 username_box.clear();
                 password_box.clear();
-                invalid_label.setText("Sorry, invalid credentials"); 
+                invalid_label.setText("Usuario o contraseña Incorrecta"); 
             }
     }
     
     private boolean isValidCredentials()
     {
         boolean let_in = false;
-        System.out.println( "SELECT * FROM Users WHERE USERNAME= " + "'" + username_box.getText() + "'" 
-            + " AND PASSWORD= " + "'" + password_box.getText() + "'" );
-    
-        Connection c = null;
-        Statement stmt = null;
+          
         try {
-            c = DriverManager.getConnection("jdbc:sqlite:test.db");
-            c.setAutoCommit(false);
+        	conexion = base.getConnection();
+			statement = conexion.createStatement();
+            conexion.setAutoCommit(false);
             
-            System.out.println("Opened database successfully");
-            stmt = c.createStatement();
             
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM Users WHERE USERNAME= " + "'" + username_box.getText() + "'" 
-            + " AND PASSWORD= " + "'" + password_box.getText() + "'");
+            statement = conexion.createStatement();
+            
+            rs = statement.executeQuery( "SELECT * FROM Usuarios WHERE nombre= " + "'" + username_box.getText() + "'" 
+            + " AND contraseña= " + "'" + password_box.getText() + "'"
+            + "AND roles= Administrador");
             
             while ( rs.next() ) {
-                 if (rs.getString("USERNAME") != null && rs.getString("PASSWORD") != null) { 
-                     String  username = rs.getString("USERNAME");
-                     System.out.println( "USERNAME = " + username );
-                     String password = rs.getString("PASSWORD");
-                     System.out.println("PASSWORD = " + password);
+                 if (rs.getString("Nombre") != null && rs.getString("Contraseña") != null) { 
+                     String  username = rs.getString("Nombre");                    
+                     String password = rs.getString("Contraseña");                    
                      let_in = true;
                  }  
             }
             rs.close();
-            stmt.close();
-            c.close();
+            statement.close();
+            conexion.close();
             } catch ( Exception e ) {
                 System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 System.exit(0);
             }
-            System.out.println("Operation done successfully");
-            return let_in;
+            
+        return let_in;
         
     }
     
