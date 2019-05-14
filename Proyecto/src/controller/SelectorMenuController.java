@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
+import model.jdbcLoginDAO;
 
 public class SelectorMenuController implements Initializable {
 
@@ -25,6 +26,9 @@ private MenuItem login;
 private MenuItem inventario;
 @FXML
 private MenuItem usuario;
+
+private jdbcLoginDAO base;
+
  
 	
 @FXML

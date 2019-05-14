@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import model.jdbcLoginDAO;
 
 public class SelectorInventarioController implements Initializable {
 
@@ -22,6 +23,9 @@ public class SelectorInventarioController implements Initializable {
 	private Button hardware;
 	@FXML	
 	private Button software;
+	
+	private jdbcLoginDAO base;
+
 	
 	@FXML
 	private void IrHardware(ActionEvent event) throws IOException {
