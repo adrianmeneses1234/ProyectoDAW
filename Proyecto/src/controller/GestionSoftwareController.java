@@ -1,11 +1,5 @@
 package controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import dto.SoftwareDTO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,17 +9,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.jdbcLoginDAO;
 import model.jdbcSoftwareDAO;
 
 public class GestionSoftwareController {
 	
 	private jdbcSoftwareDAO baseSoft;
-	private Statement statement;
-	private Connection conexion;
-	private PreparedStatement ps;
-	private ResultSet rs;
-	
 	@FXML
 	private TextField codigoInput;
 	@FXML

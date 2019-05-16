@@ -34,12 +34,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label invalid_label;
     
+    private jdbcLoginDAO login;
     
-    private jdbcLoginDAO base;
-	private Statement statement;
-	private Connection conexion;
-	private ResultSet rs;
-
 
     
     @FXML

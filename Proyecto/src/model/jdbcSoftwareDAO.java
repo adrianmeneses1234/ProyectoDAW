@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import dto.SoftwareDTO;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class jdbcSoftwareDAO {
 	

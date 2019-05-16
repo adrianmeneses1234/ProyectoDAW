@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.jdbcHardwareDAO;
 import model.jdbcLoginDAO;
 
 public class GestionHardwareController {
@@ -60,56 +61,41 @@ public class GestionHardwareController {
 	
 	
 	private ObservableList<HardwareDTO> itemsTable;
-	private jdbcLoginDAO base;
-	private Statement statement;
-	private Connection conexion;
-	private ResultSet rs;
-	
+	private jdbcHardwareDAO base;
+		
 	@FXML
 	private void Añadir(ActionEvent event) {
-				 
-		 try {
-			conexion = base.getConnection();
-			statement = conexion.createStatement();
-			rs = statement.executeQuery("INSERT INTO Hardware (codigo, nombre, descripcion, año, precio, unidades)"
-					+ " VALUES ( "+"'"+codigoInput.getText() +","+nombreInput.getText()+","+ descripcionInput.getText()+","+ añoInput.getText()+","+ precioInput+","+ unidadesInput.getText()+"'");
-			
-			while(rs.next()) {
-				if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("")&& !descripcionInput.getText().equals("")&& !añoInput.getText().equals("")&& !precioInput.getText().equals("")&& !unidadesInput.getText().equals("")) {
-					itemsTable.add(new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())));
-					codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
-					nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
-					descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
-					año.setCellValueFactory(new PropertyValueFactory("Año"));
-					precio.setCellValueFactory(new PropertyValueFactory("Precio"));
-					unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
-					
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
+		if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !añoInput.getText().equals("") && !precioInput.getText().equals("") && !unidades.getText().equals("")) 
+		{
+		base.Añadir(h);
+		itemsTable.add(h);
+		codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
+		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+		descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
+		año.setCellValueFactory(new PropertyValueFactory("Año"));
+		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
+		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+
+
 		}
-	}
+		
+				 
+		 	}
 	@FXML
 private void Eliminar(ActionEvent event) {
-			try {
-				base.getConnection();
-				statement = conexion.createStatement();
 				HardwareDTO seleccion = tabla.getSelectionModel().getSelectedItem();
-				rs = statement.executeQuery("DELETE FROM Hardware"					
-				+ " WHERE "+"'"+seleccion +"'");
+				base.Eliminar(seleccion);
 				tabla.getItems().remove(seleccion);
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	@FXML
 private void Modificar(ActionEvent event) {
-		base.getConnection();
+		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
+		base.Modificar(h);
+	
 	}
 
 	
