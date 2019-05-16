@@ -11,7 +11,8 @@ import dto.LoginDTO;
 public class jdbcLoginDAO  {
 
 public void añadir() {
-	conexion.getInstance().getConnection().p
+	conexion.getInstance().getConnection();
+	
 	
 }
 	

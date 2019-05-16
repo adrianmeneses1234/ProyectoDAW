@@ -1,6 +1,74 @@
 package model;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import dto.SoftwareDTO;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 public class jdbcSoftwareDAO {
 	
 	
+	public void AñadirSoftware(SoftwareDTO s) { 
+		
+		PreparedStatement ps=null;
+		
+		try {
+			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO software (codigo,nombre,descripcion,version,licencia,caducidad,precio,unidades)"
+						+" VALUES ("+"'"+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+"'");
+			ps.setInt(1, s.getCodigo());
+			ps.setString(2, s.getNombre());
+			ps.setString(3, s.getDescripcion());
+			ps.setString(4, s.getVersion());
+			ps.setString(5, s.getLicencia());
+			ps.setInt(6, s.getCaducidad());
+			ps.setInt(7, s.getPrecio());
+			ps.setInt(8, s.getUnidades());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+	}
+	public void EliminarSoftware(SoftwareDTO d) {
+		PreparedStatement ps=null;
+		
+		try {
+			ps=conexion.getInstance().getConnection().prepareStatement("DELETE FROM Software WHERE codigo= '?'");
+			ps.setInt(1, d.getCodigo());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void modificarSoftware(SoftwareDTO d) {
+		PreparedStatement ps=null;
+		
+		try {
+			ps=conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Software "
+					+ " SET Nombre='?',Descripcion='?',Version='?',Licencia='?',Caducidad='?',Precio ='?',Unidades='?'"
+					+ "WHERE Codigo = '?'");
+			ps.setString(1,d.getNombre());
+			ps.setString(2, d.getDescripcion());
+			ps.setString(3, d.getVersion());
+			ps.setString(4, d.getLicencia());
+			ps.setInt(5, d.getCaducidad());
+			ps.setInt(6, d.getPrecio());
+			ps.setInt(8, d.getCodigo());
+			ps.executeUpdate();
+			ps.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
