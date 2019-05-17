@@ -69,6 +69,10 @@ public class GestionSoftwareController {
 	private TableColumn<String, Integer> unidades;
 	
 	private ObservableList<SoftwareDTO> itemsTable;
+	
+	public GestionSoftwareController() {
+		this.baseSoft = new jdbcSoftwareDAO();
+	}
 
 	
 	@FXML

@@ -52,6 +52,10 @@ public class GestionUsuariosController {
 
 	private ObservableList<LoginDTO> itemsTable;
 	private jdbcLoginDAO base;
+	
+	public GestionUsuariosController() {
+		this.base= new jdbcLoginDAO();
+	}
 
 	@FXML
 	private void Añadir(ActionEvent event) {

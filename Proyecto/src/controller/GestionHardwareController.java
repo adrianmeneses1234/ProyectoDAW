@@ -61,6 +61,10 @@ public class GestionHardwareController {
 	
 	private ObservableList<HardwareDTO> itemsTable;
 	private jdbcHardwareDAO base;
+	
+	public GestionHardwareController() {
+		this.base= new jdbcHardwareDAO();
+	}
 		
 	@FXML
 	private void Añadir(ActionEvent event) {

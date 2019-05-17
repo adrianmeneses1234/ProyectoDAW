@@ -8,19 +8,19 @@
    <children>
       <MenuBar fx:id="menu" layoutX="14.0" layoutY="14.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Atras">
+          <Menu fx:id="menuatras" mnemonicParsing="false" text="Atras">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#Atras" text="Atras" />
+              <MenuItem fx:id="atras" mnemonicParsing="false" onAction="#Atras" text="Atras" />
             </items>
           </Menu>
-          <Menu fx:id="inventario" mnemonicParsing="false" text="Inventario">
+          <Menu fx:id="menuinventario" mnemonicParsing="false" text="Inventario">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#IrInventario" text="Inventario" />
+              <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Inventario" />
             </items>
           </Menu>
-          <Menu fx:id="usuario" mnemonicParsing="false" text="Usuario">
+          <Menu fx:id="menuusuario" mnemonicParsing="false" text="Usuario">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#IrUsuarios" text="Usuarios" />
+              <MenuItem fx:id="usuarios" mnemonicParsing="false" onAction="#IrUsuarios" text="Usuarios" />
             </items>
           </Menu>
         </menus>

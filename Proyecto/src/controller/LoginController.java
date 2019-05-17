@@ -36,6 +36,10 @@ public class LoginController implements Initializable {
     
     private jdbcLoginDAO login;
     
+    public LoginController() {
+    	this.login= new jdbcLoginDAO();    	
+    }
+    
 
     
     @FXML
