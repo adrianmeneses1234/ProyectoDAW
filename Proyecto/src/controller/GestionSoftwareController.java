@@ -1,14 +1,21 @@
 package controller;
 
+import java.io.IOException;
+
 import dto.SoftwareDTO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.jdbcSoftwareDAO;
 
 public class GestionSoftwareController {
@@ -23,7 +30,7 @@ public class GestionSoftwareController {
 	@FXML
 	private TextField versionInput;
 	@FXML
-	private TextField licenciaInput;
+	private TextField LicenciaInput;
 	@FXML
 	private TextField caducidadInput;
 	@FXML
@@ -37,6 +44,9 @@ public class GestionSoftwareController {
 	private Button modificar;
 	@FXML
 	private Button eliminar;
+	@FXML
+	private Button atras;
+
 
 	@FXML
 	private TableView<SoftwareDTO> tabla;
@@ -64,11 +74,11 @@ public class GestionSoftwareController {
 	@FXML
 	private void AñadirSoftware(ActionEvent event) {
 				
-					SoftwareDTO d=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),licenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+					SoftwareDTO d=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 					
 					
 					
-						if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !versionInput.getText().equals("") && !licenciaInput.getText().equals("") && !caducidadInput.getText().equals("") && !precioInput.getText().equals("") && !unidadesInput.getText().equals("")) 
+						if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !versionInput.getText().equals("") && !LicenciaInput.getText().equals("") && !caducidadInput.getText().equals("") && !precioInput.getText().equals("") && !unidadesInput.getText().equals("")) 
 						{
 							baseSoft.AñadirSoftware(d);
 							itemsTable.add(d);
@@ -99,10 +109,24 @@ public class GestionSoftwareController {
 			
 			//codigoInput=tabla.getSelectionModel().getSelectedItem().getCodigo();
 			
-			SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),licenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+			SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 			baseSoft.modificarSoftware(AUX);
 		
 		}
+	
+	@FXML
+	private void Atras(ActionEvent event) throws IOException {
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
+	    Scene principal = new Scene(log);
+	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    PrimaryStage.hide(); 
+	    PrimaryStage.setScene(principal);
+	    PrimaryStage.show();  
+
+
+
+	}
+
 
 
 }

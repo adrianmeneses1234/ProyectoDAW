@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,12 +12,17 @@ import dto.HardwareDTO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.jdbcHardwareDAO;
 import model.jdbcLoginDAO;
 
@@ -42,6 +48,8 @@ public class GestionHardwareController {
 	private Button modificar;
 	@FXML
 	private Button eliminar;
+	@FXML
+	private Button atras;
 	
 	@FXML
 	private TableView<HardwareDTO> tabla;
@@ -97,6 +105,19 @@ private void Modificar(ActionEvent event) {
 		base.Modificar(h);
 	
 	}
+	@FXML
+	private void Atras(ActionEvent event) throws IOException {
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
+	    Scene principal = new Scene(log);
+	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    PrimaryStage.hide(); 
+	    PrimaryStage.setScene(principal);
+	    PrimaryStage.show();  
+
+
+
+	}
+
 
 	
 

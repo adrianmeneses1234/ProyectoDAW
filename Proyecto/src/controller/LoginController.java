@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import dto.LoginDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +46,9 @@ public class LoginController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             
-            if (isValidCredentials())
+            
+            LoginDTO l= new LoginDTO(username_box.getText(), password_box.getText());
+            if (login.Login(l))
             {
                 app_stage.hide();
                 app_stage.setScene(home_page_scene);
@@ -59,41 +62,7 @@ public class LoginController implements Initializable {
             }
     }
     
-    private boolean isValidCredentials()
-    {
-        boolean let_in = false;
-          
-        try {
-        	conexion = base.getConnection();
-			statement = conexion.createStatement();
-            conexion.setAutoCommit(false);
-            
-            
-            statement = conexion.createStatement();
-            
-            rs = statement.executeQuery( "SELECT * FROM Usuarios WHERE nombre= " + "'" + username_box.getText() + "'" 
-            + " AND contraseña= " + "'" + password_box.getText() + "'"
-            + "AND roles= Administrador");
-            
-            while ( rs.next() ) {
-                 if (rs.getString("Nombre") != null && rs.getString("Contraseña") != null) { 
-                     String  username = rs.getString("Nombre");                    
-                     String password = rs.getString("Contraseña");                    
-                     let_in = true;
-                 }  
-            }
-            rs.close();
-            statement.close();
-            conexion.close();
-            } catch ( Exception e ) {
-                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-                System.exit(0);
-            }
-            
-        return let_in;
         
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

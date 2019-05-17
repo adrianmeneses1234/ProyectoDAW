@@ -9,7 +9,7 @@
       <SplitMenuButton fx:id="menu" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Seleciona una opcion">
         <items>
             <MenuItem fx:id="login" mnemonicParsing="false" onAction="#Volver" text="Volver Login" />
-          <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Gestion Invetario" />
+          <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Gestion Inventario" />
           <MenuItem fx:id="usuario" mnemonicParsing="false" onAction="#IrUsuario" text="Gestion Usuario" />
         </items>
       </SplitMenuButton>

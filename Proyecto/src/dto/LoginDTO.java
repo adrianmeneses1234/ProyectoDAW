@@ -17,6 +17,11 @@ public class LoginDTO {
 		this.contraseña=contraseña;
 		this.roles=roles;
 	}
+	public LoginDTO(String usuario, String contraseña) {
+		// TODO Auto-generated constructor stub
+		this.usuario=usuario;
+		this.contraseña=contraseña;
+	}
 	public String getUsuario() {
 		return usuario;
 	}
