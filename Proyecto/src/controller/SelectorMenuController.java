@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.MenuItem;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,27 +11,32 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import model.jdbcLoginDAO;
 
 public class SelectorMenuController implements Initializable {
+	@FXML
+	private MenuBar menu;
+	@FXML
+	private Menu menuatras;
+	@FXML
+	private Menu menuinventario;
+	@FXML
+	private Menu menuusuario;
+	@FXML
+	private MenuItem atras;
+	@FXML
+	private MenuItem inventario;
+	@FXML
+	private MenuItem usuarios;
 
-@FXML	
-private SplitMenuButton menu;
-@FXML
-private MenuItem login;
-@FXML
-private MenuItem inventario;
-@FXML
-private MenuItem usuario;
-
-private jdbcLoginDAO base;
-
- 
 	
+
+		
 @FXML
-private void Volver(ActionEvent event) throws IOException {
+private void Atras(ActionEvent event) throws IOException {
 	Parent log =  FXMLLoader.load(getClass().getResource("/view/inicio.fxml"));
     Scene principal = new Scene(log);
     Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -55,7 +59,7 @@ private void IrInventario(ActionEvent event) throws IOException {
 
 }
 	@FXML
-    private void IrUsuario(ActionEvent event) throws IOException {
+    private void IrUsuarios(ActionEvent event) throws IOException {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion Usuarios.fxml"));
 	    Scene principal = new Scene(log);
 	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -67,13 +71,6 @@ private void IrInventario(ActionEvent event) throws IOException {
 	}
 
 
-	
-	
-	
-	
-	
-	
-	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

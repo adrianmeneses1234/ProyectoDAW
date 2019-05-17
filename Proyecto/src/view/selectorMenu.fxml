@@ -6,12 +6,24 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectorMenuController">
    <children>
-      <SplitMenuButton fx:id="menu" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Seleciona una opcion">
-        <items>
-            <MenuItem fx:id="login" mnemonicParsing="false" onAction="#Volver" text="Volver Login" />
-          <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Gestion Inventario" />
-          <MenuItem fx:id="usuario" mnemonicParsing="false" onAction="#IrUsuario" text="Gestion Usuario" />
-        </items>
-      </SplitMenuButton>
+      <MenuBar fx:id="menu" layoutX="14.0" layoutY="14.0">
+        <menus>
+          <Menu fx:id="menuatras" mnemonicParsing="false" text="Atras">
+            <items>
+              <MenuItem fx:id="atras" mnemonicParsing="false" onAction="#Atras" text="Atras" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuinventario" mnemonicParsing="false" text="Inventario">
+            <items>
+              <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Inventario" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuusuario" mnemonicParsing="false" text="Usuario">
+            <items>
+              <MenuItem fx:id="usuarios" mnemonicParsing="false" onAction="#IrUsuarios" text="Usuarios" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </Pane>

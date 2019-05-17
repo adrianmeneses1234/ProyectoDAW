@@ -24,7 +24,7 @@ public class conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             if(connection == null)
-                connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/m_Proyecto?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","m","1234");
+                connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/m_ProyectoF?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC","m","1234");
  
         } catch (ClassNotFoundException e) {
  

@@ -13,6 +13,7 @@ public class LoginDTO {
 		this.roles="";
 	}
 	public LoginDTO(int identificador,String usuario, String contraseña, String roles) {
+		this.identificador=identificador;
 		this.usuario=usuario;
 		this.contraseña=contraseña;
 		this.roles=roles;

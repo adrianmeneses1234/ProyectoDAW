@@ -9,7 +9,7 @@ public class jdbcHardwareDAO {
 	public void Añadir(HardwareDTO h) {
 		PreparedStatement ps = null;
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Hardware (codigo, nombre, descripcion, año, precio, unidades)"
+			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Hardware (CodigoHW, Nombre, Descripcion, Año, Precio, Unidades)"
 					+ " VALUES (?,?,?,?,?,? );");			
 			ps.setInt(1, h.getCodigo());
 			ps.setString(2, h.getNombre());
@@ -30,7 +30,7 @@ public class jdbcHardwareDAO {
 		PreparedStatement ps = null;
 		
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("DELETE FROM Hardware WHERE codigo = ?;");
+			ps=conexion.getInstance().getConnection().prepareStatement("DELETE FROM Hardware WHERE CodigoHW = ?;");
 			ps.setInt(1, h.getCodigo());
 			ps.executeUpdate();
 			ps.close();
@@ -48,7 +48,7 @@ public class jdbcHardwareDAO {
 		try {
 			ps= conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Hardware "
 					+ "SET Nombre =?, Descripcion=?, Año=?, Precio=?, Unidades=?"
-					+ "WHERE Codigo=?;");
+					+ "WHERE CodigoHW=?;");
 			ps.setString(1, h.getNombre());
 			ps.setString(2, h.getDescripcion());
 			ps.setInt(3, h.getAño());

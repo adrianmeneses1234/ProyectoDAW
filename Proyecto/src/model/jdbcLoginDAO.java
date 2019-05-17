@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +14,7 @@ public class jdbcLoginDAO  {
 		PreparedStatement ps = null;
 		
 		try {
-			ps =conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Usuarios WHERE nombre= ? AND Contraseña =?");
+			ps =conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE NombreE= ? AND Contraseña =? AND Roles=Administrador");
 			ps.setString(1, l.getUsuario());
 			ps.setString(2, l.getContraseña());
 			
@@ -39,8 +37,8 @@ public class jdbcLoginDAO  {
 	public void Añadir(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Usuarios"
-					+ " (identificador, usuario, contraseña, rol)"
+			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Empleado"
+					+ " (IdentificadorE, NombreE, Contraseña, Roles)"
 					+ " VALUES (?,?,?,?);");
 			ps.setInt(1, l.getIdentificador());
 			ps.setString(2, l.getUsuario());
@@ -58,8 +56,8 @@ public class jdbcLoginDAO  {
 	public void Eliminar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Usuarios"
-					+ "WHERE identificador=?");
+			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Empleado"
+					+ "WHERE IdentificadorE=?");
 			ps.setInt(1, l.getIdentificador());
 			ps.executeUpdate();
 			ps.close();
@@ -73,9 +71,9 @@ public class jdbcLoginDAO  {
 	public void Modificar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Usuarios"
-					+ "SET usuario =?, contraseña=?, rol=?"
-					+ "WHERE identificador=?");
+			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Empleado"
+					+ "SET NombreE =?, Contraseña=?, Roles=?"
+					+ "WHERE IdentificadorE=?");
 			
 			ps.setString(1, l.getUsuario());
 			ps.setString(2, l.getContraseña());

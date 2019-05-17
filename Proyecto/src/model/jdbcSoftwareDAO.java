@@ -13,8 +13,8 @@ public class jdbcSoftwareDAO {
 		PreparedStatement ps=null;
 		
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO software (codigo,nombre,descripcion,version,licencia,caducidad,precio,unidades)"
-						+" VALUES ("+"'"+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+","+'?'+"'");
+			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Software (CodigoSW,Nombre,Descripcion,Version,Licencia,Caducidad,Precio,Unidades)"
+						+" VALUES (?,?,?,?,?,?,?,?);");
 			ps.setInt(1, s.getCodigo());
 			ps.setString(2, s.getNombre());
 			ps.setString(3, s.getDescripcion());
@@ -36,7 +36,7 @@ public class jdbcSoftwareDAO {
 		PreparedStatement ps=null;
 		
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("DELETE FROM Software WHERE codigo= '?'");
+			ps=conexion.getInstance().getConnection().prepareStatement("DELETE FROM Software WHERE CodigoSW= ?");
 			ps.setInt(1, d.getCodigo());
 			ps.executeUpdate();
 			ps.close();
@@ -52,7 +52,7 @@ public class jdbcSoftwareDAO {
 		try {
 			ps=conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Software "
 					+ " SET Nombre='?',Descripcion='?',Version='?',Licencia='?',Caducidad='?',Precio ='?',Unidades='?'"
-					+ "WHERE Codigo = '?'");
+					+ "WHERE CodigoSW = '?'");
 			ps.setString(1,d.getNombre());
 			ps.setString(2, d.getDescripcion());
 			ps.setString(3, d.getVersion());

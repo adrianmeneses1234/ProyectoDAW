@@ -1,7 +1,5 @@
 package dto;
 
-import java.util.Date;
-
 public class HardwareDTO {
 	private int codigo;
 	private String nombre;
