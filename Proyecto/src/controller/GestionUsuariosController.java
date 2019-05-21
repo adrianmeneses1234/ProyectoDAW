@@ -19,6 +19,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -37,6 +39,15 @@ public class GestionUsuariosController {
 	private TextField contraseñaInput;
 	@FXML
 	private TextField rolInput;
+	@FXML
+	private MenuButton selector;
+	@FXML
+	private MenuItem administrador;
+	@FXML
+	private MenuItem profesor;
+	@FXML
+	private MenuItem tecnico;
+	
 	
 	@FXML
 	private Button añadir;
@@ -72,9 +83,27 @@ public class GestionUsuariosController {
 		this.contraseña = new TableColumn<String, String>();
 		this.rol= new TableColumn<String, String>();
 	}
+	@FXML
+	private void AdministradorInput(ActionEvent event) {
+		rolInput.clear();
+		rolInput.setText("Administrador");
+	}
+	@FXML
+	private void ProfesorInput(ActionEvent event) {
+		rolInput.clear();
+		rolInput.setText("Profesor");
+	}
+	@FXML
+	private void TecnicoInput(ActionEvent event) {
+		rolInput.clear();
+		rolInput.setText("Tecnico");
+	}
+	
 
 	@FXML
 	private void Añadir(ActionEvent event) {
+		
+		
 		LoginDTO l = new LoginDTO(Integer.parseInt(identificadorInput.getText()), nombreInput.getText(), contraseñaInput.getText(), rolInput.getText());
 		if(!identificadorInput.getText().equals("") && !nombreInput.getText().equals("") && !contraseñaInput.getText().equals("") && !rolInput.getText().equals("")) 
 		{
