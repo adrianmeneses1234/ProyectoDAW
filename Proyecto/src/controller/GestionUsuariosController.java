@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,14 +10,20 @@ import java.sql.Statement;
 import dto.HardwareDTO;
 import dto.LoginDTO;
 import dto.SoftwareDTO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.jdbcLoginDAO;
 
 public class GestionUsuariosController {
@@ -37,6 +44,9 @@ public class GestionUsuariosController {
 	private Button modificar;
 	@FXML
 	private Button eliminar;
+	@FXML
+	private Button atras;
+
 	
 	@FXML
 	private TableView<LoginDTO> tabla;
@@ -55,6 +65,12 @@ public class GestionUsuariosController {
 	
 	public GestionUsuariosController() {
 		this.base= new jdbcLoginDAO();
+		this.tabla=new TableView<LoginDTO>();
+		this.itemsTable=FXCollections.observableArrayList(new LoginDTO());
+		this.identificador= new TableColumn<String,Integer>();
+		this.nombre=new TableColumn<String, String>();
+		this.contraseña = new TableColumn<String, String>();
+		this.rol= new TableColumn<String, String>();
 	}
 
 	@FXML
@@ -68,6 +84,7 @@ public class GestionUsuariosController {
 			nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
 			contraseña.setCellValueFactory(new PropertyValueFactory("Contraseña"));
 			rol.setCellValueFactory(new PropertyValueFactory("Rol"));
+			tabla.setItems(itemsTable);
 			
 		}
 
@@ -89,6 +106,19 @@ public class GestionUsuariosController {
 		
 		
 	}
+	@FXML
+	private void Atras(ActionEvent event) throws IOException {
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/selectorMenu.fxml"));
+	    Scene principal = new Scene(log);
+	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    PrimaryStage.hide(); 
+	    PrimaryStage.setScene(principal);
+	    PrimaryStage.show();  
+
+
+
+	}
+
 
 
 

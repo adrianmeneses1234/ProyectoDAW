@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import dto.HardwareDTO;
 import dto.SoftwareDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
