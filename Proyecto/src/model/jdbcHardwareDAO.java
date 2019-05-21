@@ -7,7 +7,7 @@ import dto.HardwareDTO;
 public class jdbcHardwareDAO {
 
 	public void Añadir(HardwareDTO h) {
-		PreparedStatement ps = null;
+		PreparedStatement ps;
 		try {
 			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Hardware (CodigoHW, Nombre, Descripcion, Año, Precio, Unidades)"
 					+ " VALUES (?,?,?,?,?,? );");			

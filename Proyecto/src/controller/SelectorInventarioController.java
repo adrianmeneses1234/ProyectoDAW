@@ -22,6 +22,9 @@ public class SelectorInventarioController implements Initializable {
 	private Button hardware;
 	@FXML	
 	private Button software;
+	@FXML	
+	private Button atras;
+
 	
 	@FXML
 	private void IrHardware(ActionEvent event) throws IOException {
@@ -45,6 +48,18 @@ public class SelectorInventarioController implements Initializable {
 
 
 	}
+	@FXML
+	private void Atras(ActionEvent event) throws IOException {
+		Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/view/selectorMenu.fxml"));
+	    Scene home_page_scene = new Scene(home_page_parent);
+	    Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    app_stage.hide();
+	    app_stage.setScene(home_page_scene);
+	    app_stage.show();  
+
+
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

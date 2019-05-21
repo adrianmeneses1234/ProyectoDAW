@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -18,31 +19,24 @@ import javafx.stage.Stage;
 
 public class SelectorMenuController implements Initializable {
 	@FXML
-	private MenuBar menu;
+	private Button atras;
 	@FXML
-	private Menu menuatras;
+	private Button inventario;
 	@FXML
-	private Menu menuinventario;
-	@FXML
-	private Menu menuusuario;
-	@FXML
-	private MenuItem atras;
-	@FXML
-	private MenuItem inventario;
-	@FXML
-	private MenuItem usuarios;
+	private Button usuarios;
 
+	
 	
 
 		
 @FXML
 private void Atras(ActionEvent event) throws IOException {
-	Parent log =  FXMLLoader.load(getClass().getResource("/view/inicio.fxml"));
-    Scene principal = new Scene(log);
-    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    PrimaryStage.hide(); 
-    PrimaryStage.setScene(principal);
-    PrimaryStage.show();  
+	Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/view/inicio.fxml"));
+    Scene home_page_scene = new Scene(home_page_parent);
+    Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    app_stage.hide();
+    app_stage.setScene(home_page_scene);
+    app_stage.show();  
 
 
 }

@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import dto.LoginDTO;
 
 public class jdbcLoginDAO  {
-
+	
 
 	public boolean Login(LoginDTO l) {
 		boolean let_in = false;
-		PreparedStatement ps = null;
+		PreparedStatement ps;
 		
 		try {
-			ps =conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE NombreE= ? AND Contraseña =? AND Roles=Administrador");
+		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE NombreE= ? AND Contraseña = ? AND Roles = 'Administrador';");
 			ps.setString(1, l.getUsuario());
 			ps.setString(2, l.getContraseña());
 			
@@ -23,11 +23,14 @@ public class jdbcLoginDAO  {
 			while(rs.next()) {				
 	                let_in = true;
 				}
+			ps.close();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 				return let_in;
 		}
 				

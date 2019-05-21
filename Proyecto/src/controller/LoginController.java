@@ -51,6 +51,8 @@ public class LoginController implements Initializable {
             
             
             LoginDTO l= new LoginDTO(username_box.getText(), password_box.getText());
+            //this.login = new jdbcLoginDAO();
+            
             if (login.Login(l))
             {
                 app_stage.hide();

@@ -1,7 +1,10 @@
 package controller;
 
 import java.io.IOException;
+
+
 import dto.HardwareDTO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,11 +67,19 @@ public class GestionHardwareController {
 	
 	public GestionHardwareController() {
 		this.base= new jdbcHardwareDAO();
+		this.tabla= new TableView<HardwareDTO>();
+		this.itemsTable=FXCollections.observableArrayList(new HardwareDTO());
+		this.codigo= new TableColumn<String,Integer>();
+		this.nombre= new TableColumn<String,String>();
+		this.descripcion= new TableColumn<String,String>();
+		this.año= new TableColumn<String,Integer>();
+		this.precio= new TableColumn<String,Integer>();
+		this.unidades= new TableColumn<String,Integer>();
 	}
 		
 	@FXML
 	private void Añadir(ActionEvent event) {
-		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
+		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 
 		if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !añoInput.getText().equals("") && !precioInput.getText().equals("") && !unidades.getText().equals("")) 
 		{
 		base.Añadir(h);
@@ -79,6 +90,7 @@ public class GestionHardwareController {
 		año.setCellValueFactory(new PropertyValueFactory("Año"));
 		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
 		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+		tabla.setItems(itemsTable);
 
 
 		}

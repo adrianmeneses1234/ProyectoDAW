@@ -6,24 +6,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectorMenuController">
    <children>
-      <MenuBar fx:id="menu" layoutX="14.0" layoutY="14.0">
-        <menus>
-          <Menu fx:id="menuatras" mnemonicParsing="false" text="Atras">
-            <items>
-              <MenuItem fx:id="atras" mnemonicParsing="false" onAction="#Atras" text="Atras" />
-            </items>
-          </Menu>
-          <Menu fx:id="menuinventario" mnemonicParsing="false" text="Inventario">
-            <items>
-              <MenuItem fx:id="inventario" mnemonicParsing="false" onAction="#IrInventario" text="Inventario" />
-            </items>
-          </Menu>
-          <Menu fx:id="menuusuario" mnemonicParsing="false" text="Usuario">
-            <items>
-              <MenuItem fx:id="usuarios" mnemonicParsing="false" onAction="#IrUsuarios" text="Usuarios" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+      <Button fx:id="atras" layoutX="87.0" layoutY="182.0" mnemonicParsing="false" onAction="#Atras" prefHeight="198.0" prefWidth="172.0" text="Atras" />
+      <Button fx:id="inventario" layoutX="327.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrInventario" prefHeight="198.0" prefWidth="172.0" text="Inventario" />
+      <Button fx:id="usuarios" layoutX="574.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrUsuarios" prefHeight="198.0" prefWidth="172.0" text="Usuarios" />
    </children>
 </Pane>
