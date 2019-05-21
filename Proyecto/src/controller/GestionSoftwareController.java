@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 
+import dto.HardwareDTO;
 import dto.SoftwareDTO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,6 +74,17 @@ public class GestionSoftwareController {
 	
 	public GestionSoftwareController() {
 		this.baseSoft = new jdbcSoftwareDAO();
+		this.tabla= new TableView<SoftwareDTO>();
+		this.itemsTable= FXCollections.observableArrayList(new SoftwareDTO());
+		this.codigo= new TableColumn<String,Integer>();
+		this.nombre= new TableColumn<String,String>();
+		this.descripcion= new TableColumn<String,String>();
+		this.version= new TableColumn<String,String>();
+		this.licencia=new TableColumn<String,String>();
+		this.caducidad= new TableColumn<String,Integer>();
+		this.precio=new TableColumn<String,Integer>();
+		this.unidades= new TableColumn<String,Integer>();
+		
 	}
 
 	
@@ -94,7 +107,7 @@ public class GestionSoftwareController {
 							caducidad.setCellValueFactory(new PropertyValueFactory("Caducidad"));
 							precio.setCellValueFactory(new PropertyValueFactory("Precio"));
 							unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
-							
+							tabla.setItems(itemsTable);
 						}
 						}
 	@FXML
