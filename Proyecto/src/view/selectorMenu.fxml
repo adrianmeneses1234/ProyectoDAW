@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectorMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectorMenuController">
    <children>
-      <Button fx:id="atras" layoutX="87.0" layoutY="182.0" mnemonicParsing="false" onAction="#Atras" prefHeight="198.0" prefWidth="172.0" text="Atras" />
-      <Button fx:id="inventario" layoutX="327.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrInventario" prefHeight="198.0" prefWidth="172.0" text="Inventario" />
-      <Button fx:id="usuarios" layoutX="574.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrUsuarios" prefHeight="198.0" prefWidth="172.0" text="Usuarios" />
+      <Button fx:id="atras" contentDisplay="CENTER" layoutX="87.0" layoutY="182.0" mnemonicParsing="false" onAction="#Atras" prefHeight="198.0" prefWidth="172.0" style="-fx-border-color: black;" text="ATRAS" textAlignment="CENTER">
+         <font>
+            <Font name="Loma Bold" size="22.0" />
+         </font></Button>
+      <Button fx:id="inventario" layoutX="327.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrInventario" prefHeight="198.0" prefWidth="172.0" style="-fx-border-color: black;" text="INVENTARIO" textAlignment="CENTER">
+         <font>
+            <Font name="Loma Bold" size="22.0" />
+         </font></Button>
+      <Button fx:id="usuarios" layoutX="574.0" layoutY="179.0" mnemonicParsing="false" onAction="#IrUsuarios" prefHeight="198.0" prefWidth="172.0" style="-fx-border-color: black;" text="Usuarios" textAlignment="CENTER">
+         <font>
+            <Font name="Loma Bold" size="22.0" />
+         </font></Button>
    </children>
 </Pane>

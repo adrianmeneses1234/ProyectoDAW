@@ -75,8 +75,8 @@ public class jdbcLoginDAO  {
 		PreparedStatement ps = null;
 		try {
 			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Empleado"
-					+ "SET NombreE =?, Contraseña=?, Roles=?"
-					+ "WHERE IdentificadorE=?");
+					+ "SET NombreE = ?, Contraseña = ?, Roles= ?"
+					+ "WHERE IdentificadorE = ?");
 			
 			ps.setString(1, l.getUsuario());
 			ps.setString(2, l.getContraseña());
