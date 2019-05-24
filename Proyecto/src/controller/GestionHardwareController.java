@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import dto.HardwareDTO;
@@ -70,7 +71,7 @@ public class GestionHardwareController implements Initializable {
 	
 	
 	private ObservableList<HardwareDTO> itemsTable;
-	private int posicionH;
+	private int posicionTabla;
 	private jdbcHardwareDAO base;
 	
 	public GestionHardwareController() {
@@ -118,13 +119,8 @@ private void Eliminar(ActionEvent event) {
 private void Modificar(ActionEvent event) {
 		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
 		base.Modificar(h);
-		itemsTable.set(posicionH,h);
-	
+	itemsTable.set(posicionTabla, h);
 	}
-	
-
-
-
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
@@ -166,9 +162,48 @@ private void Modificar(ActionEvent event) {
 		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
 		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
 		mostrar();
+		
+		final ObservableList<HardwareDTO> tablaSel= tabla.getSelectionModel().getSelectedItems();
+		tablaSel.addListener(seleccionar);
 
 	}
+	
+	private final ListChangeListener<HardwareDTO> seleccionar =
+			new ListChangeListener<HardwareDTO>() {
+		@Override
+		public void onChanged(ListChangeListener.Change<? extends HardwareDTO> c) {
+			ponerHardwareSeleccionado();
+		}
+	};
+	
+public HardwareDTO seleccion() {
+	if(tabla !=null) {
+		List<HardwareDTO> TABLA = (List<HardwareDTO>) tabla.getSelectionModel().getSelectedItems();
+		if(TABLA.size()==1) {
+			final HardwareDTO competicionSeleccionada = TABLA.get(0);
+			return competicionSeleccionada;
+		}
+	}
+	return null;
+}
+public void ponerHardwareSeleccionado() {
+	final HardwareDTO hardwaredto = seleccion();
+	posicionTabla = itemsTable.indexOf(hardwaredto);
+	if (hardwaredto !=null) {
+		
+		codigoInput.setText(Integer.toString(hardwaredto.getCodigo()));
+		nombreInput.setText(hardwaredto.getNombre());
+		descripcionInput.setText(hardwaredto.getDescripcion());
+		añoInput.setText(Integer.toString(hardwaredto.getAño()));
+		precioInput.setText(Integer.toString(hardwaredto.getPrecio()));
+		unidadesInput.setText(Integer.toString(hardwaredto.getUnidades()));
+	}
+	
+}
 
+	
+
+	
 
 
 	
