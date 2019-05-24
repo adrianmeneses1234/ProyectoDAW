@@ -18,7 +18,7 @@
             <Font name="FreeSerif" size="24.0" />
          </font></Label>
       <TextField fx:id="username_box" layoutX="86.0" layoutY="65.0" />
-      <TextField fx:id="password_box" layoutX="86.0" layoutY="100.0" />
+      <PasswordField fx:id="password_box" layoutX="86.0" layoutY="100.0" />
       <Label fx:id="label1" layoutX="25.0" layoutY="69.0" minHeight="16" minWidth="69" text="Usuario">
          <font>
             <Font name="FreeSerif" size="16.0" />
