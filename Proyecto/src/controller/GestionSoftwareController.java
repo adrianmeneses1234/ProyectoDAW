@@ -5,11 +5,13 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import dto.HardwareDTO;
 import dto.SoftwareDTO;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +81,8 @@ public class GestionSoftwareController implements Initializable {
 	
 	private ObservableList<SoftwareDTO> itemsTable;
 	
+	private int posicionS;
+	
 	public GestionSoftwareController() {
 		this.baseSoft = new jdbcSoftwareDAO();
 		this.tabla= new TableView<SoftwareDTO>();
@@ -135,9 +139,49 @@ public class GestionSoftwareController implements Initializable {
 			
 			SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 			baseSoft.modificarSoftware(AUX);
-		
+			itemsTable.set(posicionS,AUX);
 		}
 	
+	private final ListChangeListener<SoftwareDTO> selectorTablaSoftware =
+			new ListChangeListener<SoftwareDTO>() {
+				@Override
+				public void onChanged(ListChangeListener.Change<? extends SoftwareDTO> c) {
+					ponerSoftwareSeleccionado();
+				}
+				
+		};
+
+		public SoftwareDTO getTablaSoftwareSeleccionada() {
+			if(tabla != null) {
+				List<SoftwareDTO> TABLA = tabla.getSelectionModel().getSelectedItems();
+				if(TABLA.size() == 1) {
+					final SoftwareDTO competicionSeleccionada = TABLA.get(0);
+					return competicionSeleccionada;
+				}
+			}
+			return null;
+			
+		}
+		
+	private void ponerSoftwareSeleccionado() {
+		final SoftwareDTO s = getTablaSoftwareSeleccionada();
+		posicionS = itemsTable.indexOf(s);
+		
+		if(s != null) {
+			codigoInput.setText(Integer.toString(s.getCodigo()));
+			nombreInput.setText(s.getNombre());
+			descripcionInput.setText(s.getDescripcion());
+			versionInput.setText(s.getVersion());
+			LicenciaInput.setText(s.getLicencia());
+			caducidadInput.setText(s.getCaducidad());
+			precioInput.setText(Integer.toString(s.getPrecio()));
+			unidadesInput.setText(Integer.toString(s.getUnidades()));
+			
+			
+			
+		}
+	}
+
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
@@ -182,6 +226,9 @@ public class GestionSoftwareController implements Initializable {
 		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
 		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
 		mostrar();
+		
+		final ObservableList<SoftwareDTO> tablaSel = tabla.getSelectionModel().getSelectedItems();
+		tablaSel.addListener(selectorTablaSoftware);
 
 	}
 

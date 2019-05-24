@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import dto.HardwareDTO;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,6 +70,7 @@ public class GestionHardwareController implements Initializable {
 	
 	
 	private ObservableList<HardwareDTO> itemsTable;
+	private int posicionH;
 	private jdbcHardwareDAO base;
 	
 	public GestionHardwareController() {
@@ -116,8 +118,13 @@ private void Eliminar(ActionEvent event) {
 private void Modificar(ActionEvent event) {
 		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
 		base.Modificar(h);
+		itemsTable.set(posicionH,h);
 	
 	}
+	
+
+
+
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
