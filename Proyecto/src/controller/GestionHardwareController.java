@@ -1,7 +1,11 @@
 package controller;
 
 import java.io.IOException;
-
+import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import dto.HardwareDTO;
 import javafx.collections.FXCollections;
@@ -9,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,9 +23,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.conexion;
 import model.jdbcHardwareDAO;
 
-public class GestionHardwareController {
+public class GestionHardwareController implements Initializable {
 	
 	
 	@FXML
@@ -124,6 +130,38 @@ private void Modificar(ActionEvent event) {
 
 
 	}
+	public void mostrar() {
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Hardware");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				itemsTable.add(new HardwareDTO(rs.getInt("CodigoHW"), rs.getString("Nombre"),rs.getString("Descripcion"), rs.getInt("Año"), rs.getInt("Precio"), rs.getInt("Unidades")));
+				tabla.setItems(itemsTable);
+				
+			}
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
+		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+		descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
+		año.setCellValueFactory(new PropertyValueFactory("Año"));
+		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
+		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+		mostrar();
+
+	}
+
 
 
 	

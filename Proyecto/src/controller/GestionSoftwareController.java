@@ -1,13 +1,20 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
+import dto.HardwareDTO;
 import dto.SoftwareDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,9 +24,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.conexion;
 import model.jdbcSoftwareDAO;
 
-public class GestionSoftwareController {
+public class GestionSoftwareController implements Initializable {
 	
 	private jdbcSoftwareDAO baseSoft;
 	@FXML
@@ -90,7 +98,7 @@ public class GestionSoftwareController {
 	@FXML
 	private void AñadirSoftware(ActionEvent event) {
 				
-					SoftwareDTO d=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+					SoftwareDTO d=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 					
 					
 					
@@ -125,7 +133,7 @@ public class GestionSoftwareController {
 			
 			//codigoInput=tabla.getSelectionModel().getSelectedItem().getCodigo();
 			
-			SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),Integer.parseInt(caducidadInput.getText()),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+			SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 			baseSoft.modificarSoftware(AUX);
 		
 		}
@@ -142,6 +150,41 @@ public class GestionSoftwareController {
 
 
 	}
+	
+	public void mostrar() {
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Software");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				itemsTable.add(new SoftwareDTO(rs.getInt("CodigoSW"), rs.getString("Nombre"),rs.getString("Descripcion"), rs.getString("Version"), rs.getString("Licencia"), rs.getString("Caducidad"), rs.getInt("Precio"), rs.getInt("Unidades")));
+				tabla.setItems(itemsTable);
+				
+			}
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
+		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+		descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
+		version.setCellValueFactory(new PropertyValueFactory("Version"));
+		licencia.setCellValueFactory(new PropertyValueFactory("Licencia"));
+		caducidad.setCellValueFactory(new PropertyValueFactory("Caducidad"));
+		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
+		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+		mostrar();
+
+	}
+
 
 
 

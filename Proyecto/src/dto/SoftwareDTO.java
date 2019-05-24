@@ -6,7 +6,7 @@ public class SoftwareDTO {
 	private String descripcion;
 	private String version;
 	private String licencia;
-	private int caducidad;
+	private String caducidad;
 	private int precio;
 	private int unidades;
 	
@@ -16,12 +16,12 @@ public class SoftwareDTO {
 		this.descripcion="";
 		this.version="";
 		this.licencia="";
-		this.caducidad=0;
+		this.caducidad="";
 		this.precio=0;
 		this.unidades=0;
 		
 	}
-	public SoftwareDTO(int codigo, String nombre, String descripcion, String version, String licencia, int caducidad, int precio, int unidades) {
+	public SoftwareDTO(int codigo, String nombre, String descripcion, String version, String licencia, String caducidad, int precio, int unidades) {
 		this.codigo=codigo;
 		this.nombre=nombre;
 		this.descripcion=descripcion;
@@ -67,10 +67,10 @@ public class SoftwareDTO {
 	public void setLicencia(String licencia) {
 		this.licencia = licencia;
 	}
-	public int getCaducidad() {
+	public String getCaducidad() {
 		return caducidad;
 	}
-	public void setCaducidad(int caducidad) {
+	public void setCaducidad(String caducidad) {
 		this.caducidad = caducidad;
 	}
 	public int getPrecio() {

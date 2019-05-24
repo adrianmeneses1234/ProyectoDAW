@@ -28,9 +28,9 @@ CREATE TABLE Software (
     `CodigoSW` INTEGER(10) NOT NULL,
     `Nombre` VARCHAR(30) DEFAULT NULL,
     `Descripcion` VARCHAR(150) DEFAULT NULL,
-    `Version` NUMERIC(10) DEFAULT NULL,
+    `Version` VARCHAR(10) DEFAULT NULL,
     `Licencia` VARCHAR(5) DEFAULT NULL,
-`Caducidad` DATE DEFAULT NULL,
+`Caducidad` VARCHAR(20) NOT NULL,
 `Unidades` NUMERIC(10) DEFAULT NULL,
 `Precio` NUMERIC(10) NOT NULL,
 
@@ -260,8 +260,8 @@ VALUES (20001, 'CPU' ,'Ayuda para mejorar el rendimiento general de nuestro orde
        
        
 INSERT INTO Software(`CodigoSW`,`Nombre`,`Descripcion`, `Version`,`Licencia`, `Caducidad`, `Unidades`, `Precio`)  
-VALUES (30001, 'Windows 10 Enterprise' ,'Version de windows 10 orientada a empresas', 10.1, 'OS', 20/01/2019, 5, 300),
-	   (30002, 'Skype','Software capaz de comunicarnos con otras personas mediante videollamada', 2.2,'DOS', 31/8/2058, 70, 25);
+VALUES (30001, 'Windows 10 Enterprise' ,'Version de windows 10 orientada a empresas', '10.1', 'OS', '20/01/2019', 5, 300),
+	   (30002, 'Skype','Software capaz de comunicarnos con otras personas mediante videollamada', '2.2','DOS', '31/8/2058', 70, 25);
        
        
 INSERT INTO CHardware(`CodigoCHW`,`Nombre`,`Tamaño`, `Tipo`,`Descripcion`)  

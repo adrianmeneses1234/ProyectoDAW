@@ -20,7 +20,7 @@ public class jdbcSoftwareDAO {
 			ps.setString(3, s.getDescripcion());
 			ps.setString(4, s.getVersion());
 			ps.setString(5, s.getLicencia());
-			ps.setInt(6, s.getCaducidad());
+			ps.setString(6, s.getCaducidad());
 			ps.setInt(7, s.getPrecio());
 			ps.setInt(8, s.getUnidades());
 			ps.executeUpdate();
@@ -57,7 +57,7 @@ public class jdbcSoftwareDAO {
 			ps.setString(2, d.getDescripcion());
 			ps.setString(3, d.getVersion());
 			ps.setString(4, d.getLicencia());
-			ps.setInt(5, d.getCaducidad());
+			ps.setString(5, d.getCaducidad());
 			ps.setInt(6, d.getPrecio());
 			ps.setInt(8, d.getCodigo());
 			ps.executeUpdate();

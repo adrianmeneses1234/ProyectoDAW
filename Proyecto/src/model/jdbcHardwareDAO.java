@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import dto.HardwareDTO;
 
@@ -62,8 +63,11 @@ public class jdbcHardwareDAO {
 			e.printStackTrace();
 		}
 		
-	}
+		
+			
+		}
 	
+		
 	
 	
 
