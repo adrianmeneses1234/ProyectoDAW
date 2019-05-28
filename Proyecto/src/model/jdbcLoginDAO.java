@@ -59,8 +59,7 @@ public class jdbcLoginDAO  {
 	public void Eliminar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Empleado"
-					+ "WHERE IdentificadorE=?");
+			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Empleado WHERE IdentificadorE=?");
 			ps.setInt(1, l.getIdentificador());
 			ps.executeUpdate();
 			ps.close();
@@ -74,9 +73,7 @@ public class jdbcLoginDAO  {
 	public void Modificar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Empleado"
-					+ "SET NombreE = ?, Contraseña = ?, Roles= ?"
-					+ "WHERE IdentificadorE = ?");
+			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE Empleado SET NombreE = ?, Contraseña = ?, Roles= ? WHERE IdentificadorE = ?");
 			
 			ps.setString(1, l.getUsuario());
 			ps.setString(2, l.getContraseña());

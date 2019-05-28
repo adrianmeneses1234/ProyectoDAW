@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -38,5 +39,15 @@
       <Label layoutX="60.0" layoutY="384.0" text="Unidades" />
       <TextField fx:id="unidadesInput" layoutX="41.0" layoutY="410.0" />
       <Button fx:id="atras" layoutX="10.0" layoutY="6.0" mnemonicParsing="false" onAction="#Atras" text="&lt;" />
+      <Button fx:id="mas" layoutX="10.0" layoutY="410.0" mnemonicParsing="false" onAction="#sumar" prefHeight="25.0" prefWidth="29.0" text="+">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="menos" layoutX="215.0" layoutY="410.0" mnemonicParsing="false" onAction="#restar" prefHeight="25.0" prefWidth="29.0" text="-">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

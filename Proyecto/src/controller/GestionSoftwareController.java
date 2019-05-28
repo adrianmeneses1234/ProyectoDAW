@@ -57,6 +57,10 @@ public class GestionSoftwareController implements Initializable {
 	private Button eliminar;
 	@FXML
 	private Button atras;
+	@FXML
+	private Button mas;
+	@FXML
+	private Button menos;
 
 
 	@FXML
@@ -142,6 +146,22 @@ public class GestionSoftwareController implements Initializable {
 			itemsTable.set(posicionS,AUX);
 		}
 	
+	@FXML
+	private void sumar(ActionEvent event) {
+		SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+		unidadesInput.clear();
+		AUX.sumar();
+		unidadesInput.setText(Integer.toString(AUX.getUnidades()));
+		
+	}
+	@FXML
+	private void restar(ActionEvent event) {
+		SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
+		unidadesInput.clear();
+		AUX.restar();
+		unidadesInput.setText(Integer.toString(AUX.getUnidades()));
+
+	}
 	private final ListChangeListener<SoftwareDTO> selectorTablaSoftware =
 			new ListChangeListener<SoftwareDTO>() {
 				@Override

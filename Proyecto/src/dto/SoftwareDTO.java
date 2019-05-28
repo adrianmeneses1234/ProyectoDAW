@@ -31,6 +31,9 @@ public class SoftwareDTO {
 		this.precio=precio;
 		this.unidades=unidades;
 	}
+	public int sumar() {
+		return this.unidades=this.unidades+1;
+	}
 	public int getUnidades() {
 		return unidades;
 	}
@@ -84,6 +87,10 @@ public class SoftwareDTO {
 		return "SoftwareDTO [codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", version="
 				+ version + ", licencia=" + licencia + ", caducidad=" + caducidad + ", precio=" + precio + ", unidades="
 				+ unidades + "]";
+	}
+	public int restar() {
+	return this.unidades=unidades-1;
+		
 	}
 	
 	
