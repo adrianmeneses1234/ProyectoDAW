@@ -50,15 +50,14 @@ public class jdbcSoftwareDAO {
 		PreparedStatement ps=null;
 		
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Software "
-					+ " SET Nombre='?',Descripcion='?',Version='?',Licencia='?',Caducidad='?',Precio ='?',Unidades='?'"
-					+ "WHERE CodigoSW = '?'");
+			ps=conexion.getInstance().getConnection().prepareStatement("UPDATE Software SET Nombre=?,Descripcion=?,Version=?,Licencia=?,Caducidad=?,Precio =?,Unidades=? WHERE CodigoSW=?;");
 			ps.setString(1,d.getNombre());
 			ps.setString(2, d.getDescripcion());
 			ps.setString(3, d.getVersion());
 			ps.setString(4, d.getLicencia());
 			ps.setString(5, d.getCaducidad());
 			ps.setInt(6, d.getPrecio());
+			ps.setInt(7, d.getUnidades());
 			ps.setInt(8, d.getCodigo());
 			ps.executeUpdate();
 			ps.close();

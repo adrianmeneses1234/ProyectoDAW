@@ -47,9 +47,7 @@ public class jdbcHardwareDAO {
 		PreparedStatement ps = null;
 		
 		try {
-			ps= conexion.getInstance().getConnection().prepareStatement("UPDATE FROM Hardware "
-					+ "SET Nombre =?, Descripcion=?, Año=?, Precio=?, Unidades=?"
-					+ "WHERE CodigoHW=?;");
+			ps= conexion.getInstance().getConnection().prepareStatement("UPDATE Hardware SET Nombre =?, Descripcion=?, Año=?, Precio=?, Unidades=? WHERE CodigoHW=?;");
 			ps.setString(1, h.getNombre());
 			ps.setString(2, h.getDescripcion());
 			ps.setInt(3, h.getAño());
