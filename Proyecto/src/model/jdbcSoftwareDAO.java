@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 import dto.SoftwareDTO;
 
-public class jdbcSoftwareDAO {
+public class jdbcSoftwareDAO implements SoftwareDAO{
 	
-	
+	@Override
 	public void AñadirSoftware(SoftwareDTO s) { 
 		
 		PreparedStatement ps=null;
@@ -32,6 +32,7 @@ public class jdbcSoftwareDAO {
 	
 		
 	}
+	@Override
 	public void EliminarSoftware(SoftwareDTO d) {
 		PreparedStatement ps=null;
 		
@@ -46,6 +47,7 @@ public class jdbcSoftwareDAO {
 		}
 		
 	}
+	@Override
 	public void modificarSoftware(SoftwareDTO d) {
 		PreparedStatement ps=null;
 		

@@ -6,16 +6,16 @@ import java.sql.SQLException;
 
 import dto.LoginDTO;
 
-public class jdbcLoginDAO  {
+public class jdbcLoginDAO implements LoginDAO {
 	
-
+@Override
 	public boolean Login(LoginDTO l) {
 		boolean let_in = false;
 		PreparedStatement ps;
 		
 		try {
-		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE NombreE= ? AND Contraseña = ? AND Roles = 'Administrador';");
-			ps.setString(1, l.getUsuario());
+		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre= ? AND Contraseña = ? AND Rol = 'Administrador';");
+			ps.setString(1, l.getNombre());
 			ps.setString(2, l.getContraseña());
 			
 			
@@ -36,17 +36,17 @@ public class jdbcLoginDAO  {
 				
 		
 		
-	
+@Override
 	public void Añadir(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
 			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Empleado"
-					+ " (IdentificadorE, NombreE, Contraseña, Roles)"
+					+ " (Identificador, Nombre, Contraseña, Rol)"
 					+ " VALUES (?,?,?,?);");
 			ps.setInt(1, l.getIdentificador());
-			ps.setString(2, l.getUsuario());
+			ps.setString(2, l.getNombre());
 			ps.setString(3, l.getContraseña());
-			ps.setString(4, l.getRoles());
+			ps.setString(4, l.getRol());
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
@@ -55,11 +55,11 @@ public class jdbcLoginDAO  {
 		}
 		
 	}
-	
+@Override
 	public void Eliminar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Empleado WHERE IdentificadorE=?");
+			ps =conexion.getInstance().getConnection().prepareStatement("DELETE FROM Empleado WHERE Identificador=?");
 			ps.setInt(1, l.getIdentificador());
 			ps.executeUpdate();
 			ps.close();
@@ -69,16 +69,18 @@ public class jdbcLoginDAO  {
 		}
 		
 	}
-	
+@Override
 	public void Modificar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE Empleado SET NombreE = ?, Contraseña = ?, Roles= ? WHERE IdentificadorE = ?");
+			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE Empleado SET Nombre=?, Contraseña=?, Rol=? WHERE Identificador =?;");
 			
-			ps.setString(1, l.getUsuario());
+			ps.setString(1, l.getNombre());
 			ps.setString(2, l.getContraseña());
-			ps.setString(3, l.getRoles());
+			ps.setString(3, l.getRol());
 			ps.setInt(4, l.getIdentificador());
+			ps.executeUpdate();
+			ps.close();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

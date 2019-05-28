@@ -1,12 +1,12 @@
 package model;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import dto.HardwareDTO;
 
-public class jdbcHardwareDAO {
+public class jdbcHardwareDAO implements HardwareDAO{
 
+	@Override
 	public void Añadir(HardwareDTO h) {
 		PreparedStatement ps;
 		try {
@@ -26,7 +26,7 @@ public class jdbcHardwareDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	@Override
 	public void Eliminar(HardwareDTO h) {
 		PreparedStatement ps = null;
 		
@@ -42,6 +42,7 @@ public class jdbcHardwareDAO {
 		
 		
 	}
+	@Override
 	public void Modificar(HardwareDTO h) {
 		
 		PreparedStatement ps = null;

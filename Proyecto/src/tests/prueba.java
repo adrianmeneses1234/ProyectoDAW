@@ -42,16 +42,16 @@ class Prueba {
         LoginDTO dto = new LoginDTO(1,"samu","contraseña","administrador");
         LoginDTO dto1 = new LoginDTO();
         dto1.setIdentificador(1);
-        dto1.setUsuario("samu");
+        dto1.setNombre("samu");
         dto1.setContraseña("contraseña");
-        dto1.setRoles("administrador");
+        dto1.setRol("administrador");
         assertEquals(dto,dto1);
     }
     @Test
     public void test4() {
         LoginDTO dto = new LoginDTO(1,"samu","contraseña","administrador");
        
-        LoginDTO dto2= new LoginDTO(dto.getIdentificador(),dto.getUsuario(),dto.getContraseña(),dto.getRoles());
+        LoginDTO dto2= new LoginDTO(dto.getIdentificador(),dto.getNombre(),dto.getContraseña(),dto.getRol());
                
         assertEquals(dto,dto2);
     }

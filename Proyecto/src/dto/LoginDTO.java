@@ -2,32 +2,32 @@ package dto;
 
 public class LoginDTO {
 	private int identificador;
-	private String usuario;
+	private String nombre;
 	private  String contraseña;
-	private String roles;
+	private String rol;
 	
 	public LoginDTO() {
 		this.identificador=0;
-		this.usuario="";
+		this.nombre="";
 		this.contraseña="";
-		this.roles="";
+		this.rol="";
 	}
-	public LoginDTO(int identificador,String usuario, String contraseña, String roles) {
+	public LoginDTO(String nombre, String contraseña) {
+		this.nombre=nombre;
+		this.contraseña=contraseña;
+	}
+
+	public LoginDTO(int identificador,String nombre, String contraseña, String rol) {
 		this.identificador=identificador;
-		this.usuario=usuario;
+		this.nombre=nombre;
 		this.contraseña=contraseña;
-		this.roles=roles;
+		this.rol=rol;
 	}
-	public LoginDTO(String usuario, String contraseña) {
-		// TODO Auto-generated constructor stub
-		this.usuario=usuario;
-		this.contraseña=contraseña;
+		public String getNombre() {
+		return nombre;
 	}
-	public String getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	public String getContraseña() {
 		return contraseña;
@@ -36,11 +36,11 @@ public class LoginDTO {
 		this.contraseña = contraseña;
 	}
 	
-	public String getRoles() {
-		return roles;
+	public String getRol() {
+		return rol;
 	}
-	public void setRoles(String roles) {
-		this.roles = roles;
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 	
 	public int getIdentificador() {
@@ -51,8 +51,8 @@ public class LoginDTO {
 	}
 	@Override
 	public String toString() {
-		return "LoginDTO [identificador=" + identificador + ", usuario=" + usuario + ", contraseña=" + contraseña
-				+ ", roles=" + roles + "]";
+		return "LoginDTO [identificador=" + identificador + ", usuario=" + nombre + ", contraseña=" + contraseña
+				+ ", roles=" + rol + "]";
 	}
 	
 

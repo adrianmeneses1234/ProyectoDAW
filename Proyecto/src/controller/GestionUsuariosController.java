@@ -116,10 +116,10 @@ public class GestionUsuariosController implements Initializable {
 		{
 			base.Añadir(l);
 			itemsTable.add(l);
-			identificador.setCellValueFactory(new PropertyValueFactory("Identificador"));
-			nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
-			contraseña.setCellValueFactory(new PropertyValueFactory("Contraseña"));
-			rol.setCellValueFactory(new PropertyValueFactory("Rol"));
+			identificador.setCellValueFactory(new PropertyValueFactory("identificador"));
+			nombre.setCellValueFactory(new PropertyValueFactory("nombre"));
+			contraseña.setCellValueFactory(new PropertyValueFactory("contraseña"));
+			rol.setCellValueFactory(new PropertyValueFactory("rol"));
 			tabla.setItems(itemsTable);
 			
 		}
@@ -162,7 +162,7 @@ public class GestionUsuariosController implements Initializable {
 			ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				itemsTable.add(new LoginDTO(rs.getInt("IdentificadorE"),rs.getString("NombreE"), rs.getString("Contraseña"),rs.getString("Roles") ));
+				itemsTable.add(new LoginDTO(rs.getInt("identificador"),rs.getString("nombre"), rs.getString("contraseña"),rs.getString("rol") ));
 				tabla.setItems(itemsTable);
 				
 			}
@@ -177,10 +177,10 @@ public class GestionUsuariosController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		identificador.setCellValueFactory(new PropertyValueFactory("Identificador"));
-		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
-		contraseña.setCellValueFactory(new PropertyValueFactory("Contraseña"));
-		rol.setCellValueFactory(new PropertyValueFactory("Rol"));
+		identificador.setCellValueFactory(new PropertyValueFactory("identificador"));
+		nombre.setCellValueFactory(new PropertyValueFactory("nombre"));
+		contraseña.setCellValueFactory(new PropertyValueFactory("contraseña"));
+		rol.setCellValueFactory(new PropertyValueFactory("rol"));
 		mostrar();
 		
 		final ObservableList<LoginDTO> tablaSel= tabla.getSelectionModel().getSelectedItems();
@@ -212,9 +212,9 @@ public void ponerLoginSeleccionado() {
 	if (logindto !=null) {
 		
 		identificadorInput.setText(Integer.toString(logindto.getIdentificador()));
-		nombreInput.setText(logindto.getUsuario());
+		nombreInput.setText(logindto.getNombre());
 		contraseñaInput.setText(logindto.getContraseña());
-		rolInput.setText(logindto.getRoles());
+		rolInput.setText(logindto.getRol());
 			}
 	
 

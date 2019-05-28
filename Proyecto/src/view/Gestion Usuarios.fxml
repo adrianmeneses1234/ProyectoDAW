@@ -11,10 +11,10 @@
       <Button fx:id="eliminar" layoutX="477.0" layoutY="344.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" />
       <TableView fx:id="tabla" layoutX="158.0" layoutY="14.0" prefHeight="317.0" prefWidth="428.0">
         <columns>
-          <TableColumn prefWidth="109.0" text="Identificador" />
-          <TableColumn minWidth="9.0" prefWidth="77.0" text="Nombre" />
-            <TableColumn prefWidth="119.0" text="Contraseña" />
-            <TableColumn minWidth="0.0" prefWidth="122.0" text="Rol " />
+          <TableColumn fx:id="identificador" prefWidth="109.0" text="Identificador" />
+          <TableColumn fx:id="nombre" minWidth="9.0" prefWidth="77.0" text="Nombre" />
+            <TableColumn fx:id="contraseña" prefWidth="119.0" text="Contraseña" />
+            <TableColumn fx:id="rol" minWidth="0.0" prefWidth="122.0" text="Rol " />
         </columns>
       </TableView>
       <Label layoutX="40.0" layoutY="44.0" text="Identificador" />
