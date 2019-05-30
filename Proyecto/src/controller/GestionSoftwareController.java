@@ -61,6 +61,8 @@ public class GestionSoftwareController implements Initializable {
 	private Button mas;
 	@FXML
 	private Button menos;
+	@FXML
+	private Button limpiar;
 
 
 	@FXML
@@ -214,6 +216,18 @@ public class GestionSoftwareController implements Initializable {
 
 
 	}
+	@FXML
+	private void Limpiar(ActionEvent event) throws IOException {
+		codigoInput.clear();
+		nombreInput.clear();
+		descripcionInput.clear();
+		versionInput.clear();
+		LicenciaInput.clear();
+		caducidadInput.clear();
+		precioInput.clear();
+		unidadesInput.clear();
+	}
+
 	
 	public void mostrar() {
 		PreparedStatement ps = null;

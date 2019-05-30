@@ -14,7 +14,7 @@ public class jdbcLoginDAO implements LoginDAO {
 		PreparedStatement ps;
 		
 		try {
-		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre= ? AND Contraseña = ? AND Rol = 'Administrador';");
+		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre= ? AND Contraseña = ?;");
 			ps.setString(1, l.getNombre());
 			ps.setString(2, l.getContraseña());
 			
@@ -33,6 +33,63 @@ public class jdbcLoginDAO implements LoginDAO {
 		
 				return let_in;
 		}
+@Override
+public boolean LoginAdmin(LoginDTO l) {
+	boolean let_in = false;
+	PreparedStatement ps;
+	
+	try {
+	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contraseña =? AND Rol = 'Administrador';");
+		ps.setString(1, l.getNombre());
+		ps.setString(2, l.getContraseña());
+		
+		
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {				
+                let_in = true;
+			}
+		ps.close();
+		
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+			return let_in;
+	}
+	
+
+@Override
+public boolean LoginProfesor(LoginDTO l) {
+	boolean let_in = false;
+	PreparedStatement ps;
+	
+	try {
+	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contraseña=? AND Rol=Profesor;");
+		ps.setString(1, l.getNombre());
+		ps.setString(2, l.getContraseña());
+		
+		
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()) {				
+                let_in = true;
+			}
+		ps.close();
+		
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+			return let_in;
+	}
+	
+
+
+
+
 				
 		
 		

@@ -1,14 +1,10 @@
 package controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import dto.LoginDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.jdbcLoginDAO;
 
-public class LoginController implements Initializable {
+public class LoginController  {
     
     @FXML
     private Label label;
@@ -37,25 +33,40 @@ public class LoginController implements Initializable {
     
     private jdbcLoginDAO login;
     
+    private SelectorMenuController smc;
+    
+    
+    
     public LoginController() {
-    	this.login= new jdbcLoginDAO();    	
+    	this.login= new jdbcLoginDAO(); 
+    	this.smc= new SelectorMenuController();
     }
     
 
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
+    	  	
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/selectorMenu.fxml"));     
+    	Parent root = (Parent)fxmlLoader.load();          
+    	smc = fxmlLoader.<SelectorMenuController>getController();
+    	smc.setNombre(this.username_box.getText());
+        smc.setContraseña(this.password_box.getText());
         
-            Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/view/selectorMenu.fxml"));
-            Scene home_page_scene = new Scene(home_page_parent);
+            Scene home_page_scene = new Scene(root);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             
             
-            LoginDTO l= new LoginDTO(username_box.getText(), password_box.getText());
-            //this.login = new jdbcLoginDAO();
+
+            
+            LoginDTO l= new LoginDTO(this.username_box.getText(), this.password_box.getText());
+            System.out.println("");
+                        
             
             if (login.Login(l))
             {
+            	
                 app_stage.hide();
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
@@ -67,11 +78,9 @@ public class LoginController implements Initializable {
                 invalid_label.setText("Usuario o contraseña Incorrecta"); 
             }
     }
-    
+
+
+
+
         
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
 }

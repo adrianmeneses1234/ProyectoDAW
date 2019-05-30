@@ -28,7 +28,7 @@ public class SelectorInventarioController implements Initializable {
 	
 	@FXML
 	private void IrHardware(ActionEvent event) throws IOException {
-		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion Inventario Hardware.fxml"));
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion_Inventario_Hardware.fxml"));
 	    Scene principal = new Scene(log);
 	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    PrimaryStage.hide(); 
@@ -39,7 +39,7 @@ public class SelectorInventarioController implements Initializable {
 	}
 	@FXML
 	private void IrSoftware(ActionEvent event) throws IOException {
-		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion Inventario Software.fxml"));
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion_Inventario_Software.fxml"));
 	    Scene principal = new Scene(log);
 	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    PrimaryStage.hide(); 

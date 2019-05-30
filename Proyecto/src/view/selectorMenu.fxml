@@ -19,5 +19,6 @@
          <font>
             <Font name="Loma Bold" size="22.0" />
          </font></Button>
+      <Label fx:id="invalid_label" layoutX="560.0" layoutY="393.0" prefHeight="15.0" prefWidth="201.0" textFill="RED" />
    </children>
 </Pane>

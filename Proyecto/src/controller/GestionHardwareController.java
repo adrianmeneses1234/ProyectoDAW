@@ -1,5 +1,5 @@
 package controller;
-
+ 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-
+ 
 import dto.HardwareDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -27,185 +27,237 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcHardwareDAO;
-
+ 
 public class GestionHardwareController implements Initializable {
-	
-	
-	@FXML
-	private TextField codigoInput;
-	@FXML
-	private TextField nombreInput;
-	@FXML
-	private TextField descripcionInput;
-	@FXML
-	private TextField añoInput;
-	@FXML
-	private TextField precioInput;
-	@FXML
-	private TextField unidadesInput;
+   
+   
+    @FXML
+    private TextField codigoInput;
+    @FXML
+    private TextField nombreInput;
+    @FXML
+    private TextField descripcionInput;
+    @FXML
+    private TextField añoInput;
+    @FXML
+    private TextField precioInput;
+    @FXML
+    private TextField unidadesInput;
+ 
+    @FXML
+    private Button añadir;
+    @FXML
+    private Button modificar;
+    @FXML
+    private Button eliminar;
+    @FXML
+    private Button atras;
+    @FXML
+    private Button masPrecio;
+    @FXML
+    private Button menosPrecio;
+    @FXML
+    private Button masUnidades;
+    @FXML
+    private Button menosUnidades;
+    @FXML
+    private Button limpiar;
 
-	@FXML
-	private Button añadir;
-	@FXML
-	private Button modificar;
-	@FXML
-	private Button eliminar;
-	@FXML
-	private Button atras;
-	
-	@FXML
-	private TableView<HardwareDTO> tabla;
-	@FXML
-	private TableColumn<String,Integer> codigo;
-	@FXML
-	private TableColumn<String, String> nombre;
-	@FXML
-	private TableColumn<String, String> descripcion;
-	@FXML
-	private TableColumn<String, Integer> año;
-	@FXML
-	private TableColumn<String, Integer> precio;
-	
-	@FXML
-	private TableColumn<String, Integer> unidades;
-	
-	
-	private ObservableList<HardwareDTO> itemsTable;
-	private int posicionTabla;
-	private jdbcHardwareDAO base;
-	
-	public GestionHardwareController() {
-		this.base= new jdbcHardwareDAO();
-		this.tabla= new TableView<HardwareDTO>();
-		this.itemsTable=FXCollections.observableArrayList(new HardwareDTO());
-		this.codigo= new TableColumn<String,Integer>();
-		this.nombre= new TableColumn<String,String>();
-		this.descripcion= new TableColumn<String,String>();
-		this.año= new TableColumn<String,Integer>();
-		this.precio= new TableColumn<String,Integer>();
-		this.unidades= new TableColumn<String,Integer>();
-	}
-		
-	@FXML
-	private void Añadir(ActionEvent event) {
-		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 
-		if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !añoInput.getText().equals("") && !precioInput.getText().equals("") && !unidades.getText().equals("")) 
-		{
-		base.Añadir(h);
-		itemsTable.add(h);
-		codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
-		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
-		descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
-		año.setCellValueFactory(new PropertyValueFactory("Año"));
-		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
-		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
-		tabla.setItems(itemsTable);
-
-
-		}
-		
-				 
-		 	}
-	@FXML
+   
+    @FXML
+    private TableView<HardwareDTO> tabla;
+    @FXML
+    private TableColumn<String,Integer> codigo;
+    @FXML
+    private TableColumn<String, String> nombre;
+    @FXML
+    private TableColumn<String, String> descripcion;
+    @FXML
+    private TableColumn<String, Integer> año;
+    @FXML
+    private TableColumn<String, Integer> precio;
+   
+    @FXML
+    private TableColumn<String, Integer> unidades;
+   
+   
+    private ObservableList<HardwareDTO> itemsTable;
+    private int posicionTabla;
+    private jdbcHardwareDAO base;
+   
+    public GestionHardwareController() {
+        this.base= new jdbcHardwareDAO();
+        this.tabla= new TableView<HardwareDTO>();
+        this.itemsTable=FXCollections.observableArrayList(new HardwareDTO());
+        this.codigo= new TableColumn<String,Integer>();
+        this.nombre= new TableColumn<String,String>();
+        this.descripcion= new TableColumn<String,String>();
+        this.año= new TableColumn<String,Integer>();
+        this.precio= new TableColumn<String,Integer>();
+        this.unidades= new TableColumn<String,Integer>();
+    }
+       
+    @FXML
+    private void Añadir(ActionEvent event) {
+        HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));
+        if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !añoInput.getText().equals("") && !precioInput.getText().equals("") && !unidades.getText().equals(""))
+        {
+        base.Añadir(h);
+        itemsTable.add(h);
+        codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
+        nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+        descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
+        año.setCellValueFactory(new PropertyValueFactory("Año"));
+        precio.setCellValueFactory(new PropertyValueFactory("Precio"));
+        unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+        tabla.setItems(itemsTable);
+ 
+ 
+        }
+       
+                 
+            }
+    @FXML
 private void Eliminar(ActionEvent event) {
-				HardwareDTO seleccion = tabla.getSelectionModel().getSelectedItem();
-				base.Eliminar(seleccion);
-				tabla.getItems().remove(seleccion);
-
-		
-	}
-
-	@FXML
+                HardwareDTO seleccion = tabla.getSelectionModel().getSelectedItem();
+                base.Eliminar(seleccion);
+                tabla.getItems().remove(seleccion);
+ 
+       
+    }
+ 
+    @FXML
 private void Modificar(ActionEvent event) {
-		HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText())); 		
-		base.Modificar(h);
-	itemsTable.set(posicionTabla, h);
+        HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));     
+        base.Modificar(h);
+    itemsTable.set(posicionTabla, h);
+    }
+    @FXML
+    private void Atras(ActionEvent event) throws IOException {
+        Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
+        Scene principal = new Scene(log);
+        Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        PrimaryStage.hide();
+        PrimaryStage.setScene(principal);
+        PrimaryStage.show();  
+ 
+ 
+ 
+    }
+    
+    @FXML
+	private void Limpiar(ActionEvent event) throws IOException {
+		codigoInput.clear();
+		nombreInput.clear();
+		descripcionInput.clear();
+		añoInput.clear();		
+		precioInput.clear();
+		unidadesInput.clear();
 	}
-	@FXML
-	private void Atras(ActionEvent event) throws IOException {
-		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
-	    Scene principal = new Scene(log);
-	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	    PrimaryStage.hide(); 
-	    PrimaryStage.setScene(principal);
-	    PrimaryStage.show();  
 
-
-
-	}
-	public void mostrar() {
-		PreparedStatement ps = null;
-		
-		try {
-			ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Hardware");
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				itemsTable.add(new HardwareDTO(rs.getInt("CodigoHW"), rs.getString("Nombre"),rs.getString("Descripcion"), rs.getInt("Año"), rs.getInt("Precio"), rs.getInt("Unidades")));
-				tabla.setItems(itemsTable);
-				
-			}
-			ps.close();
-			rs.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
-		nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
-		descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
-		año.setCellValueFactory(new PropertyValueFactory("Año"));
-		precio.setCellValueFactory(new PropertyValueFactory("Precio"));
-		unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
-		mostrar();
-		
-		final ObservableList<HardwareDTO> tablaSel= tabla.getSelectionModel().getSelectedItems();
-		tablaSel.addListener(seleccionar);
-
-	}
-	
-	private final ListChangeListener<HardwareDTO> seleccionar =
-			new ListChangeListener<HardwareDTO>() {
-		@Override
-		public void onChanged(ListChangeListener.Change<? extends HardwareDTO> c) {
-			ponerHardwareSeleccionado();
-		}
-	};
-	
+    public void mostrar() {
+        PreparedStatement ps = null;
+       
+        try {
+            ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Hardware");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                itemsTable.add(new HardwareDTO(rs.getInt("CodigoHW"), rs.getString("Nombre"),rs.getString("Descripcion"), rs.getInt("Año"), rs.getInt("Precio"), rs.getInt("Unidades")));
+                tabla.setItems(itemsTable);
+               
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }      
+        }
+ 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+        codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
+        nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+        descripcion.setCellValueFactory(new PropertyValueFactory("Descripcion"));
+        año.setCellValueFactory(new PropertyValueFactory("Año"));
+        precio.setCellValueFactory(new PropertyValueFactory("Precio"));
+        unidades.setCellValueFactory(new PropertyValueFactory("Unidades"));
+        mostrar();
+       
+        final ObservableList<HardwareDTO> tablaSel= tabla.getSelectionModel().getSelectedItems();
+        tablaSel.addListener(seleccionar);
+ 
+    }
+   
+    private final ListChangeListener<HardwareDTO> seleccionar =
+            new ListChangeListener<HardwareDTO>() {
+        @Override
+        public void onChanged(ListChangeListener.Change<? extends HardwareDTO> c) {
+            ponerHardwareSeleccionado();
+        }
+    };
+   
 public HardwareDTO seleccion() {
-	if(tabla !=null) {
-		List<HardwareDTO> TABLA = (List<HardwareDTO>) tabla.getSelectionModel().getSelectedItems();
-		if(TABLA.size()==1) {
-			final HardwareDTO competicionSeleccionada = TABLA.get(0);
-			return competicionSeleccionada;
-		}
-	}
-	return null;
+    if(tabla !=null) {
+        List<HardwareDTO> TABLA = (List<HardwareDTO>) tabla.getSelectionModel().getSelectedItems();
+        if(TABLA.size()==1) {
+            final HardwareDTO competicionSeleccionada = TABLA.get(0);
+            return competicionSeleccionada;
+        }
+    }
+    return null;
 }
 public void ponerHardwareSeleccionado() {
-	final HardwareDTO hardwaredto = seleccion();
-	posicionTabla = itemsTable.indexOf(hardwaredto);
-	if (hardwaredto !=null) {
-		
-		codigoInput.setText(Integer.toString(hardwaredto.getCodigo()));
-		nombreInput.setText(hardwaredto.getNombre());
-		descripcionInput.setText(hardwaredto.getDescripcion());
-		añoInput.setText(Integer.toString(hardwaredto.getAño()));
-		precioInput.setText(Integer.toString(hardwaredto.getPrecio()));
-		unidadesInput.setText(Integer.toString(hardwaredto.getUnidades()));
-	}
-	
+    final HardwareDTO hardwaredto = seleccion();
+    posicionTabla = itemsTable.indexOf(hardwaredto);
+    if (hardwaredto !=null) {
+       
+        codigoInput.setText(Integer.toString(hardwaredto.getCodigo()));
+        nombreInput.setText(hardwaredto.getNombre());
+        descripcionInput.setText(hardwaredto.getDescripcion());
+        añoInput.setText(Integer.toString(hardwaredto.getAño()));
+        precioInput.setText(Integer.toString(hardwaredto.getPrecio()));
+        unidadesInput.setText(Integer.toString(hardwaredto.getUnidades()));
+    }
+   
 }
-
-	
-
-	
-
-
-	
-
+ 
+@FXML
+public void sumarPrecio(ActionEvent event) {
+    HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));     
+    precioInput.clear();
+    h.sumarPrecio();
+    precioInput.setText(Integer.toString(h.getPrecio()));
+   
+}
+@FXML
+public void restarPrecio(ActionEvent event) {
+    HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));     
+    precioInput.clear();
+    h.restarPrecio();
+    precioInput.setText(Integer.toString(h.getPrecio()));
+   
+}
+@FXML
+public void sumarUnidades(ActionEvent event) {
+    HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));     
+    unidadesInput.clear();
+    h.sumarUnidades();
+    unidadesInput.setText(Integer.toString(h.getUnidades()));
+   
+}
+@FXML
+public void restarUnidades(ActionEvent event) {
+    HardwareDTO h= new HardwareDTO(Integer.parseInt(codigoInput.getText()), nombreInput.getText(), descripcionInput.getText(), Integer.parseInt(añoInput.getText()), Integer.parseInt(precioInput.getText()), Integer.parseInt(unidadesInput.getText()));     
+    unidadesInput.clear();
+    h.restarUnidades();
+    unidadesInput.setText(Integer.toString(h.getUnidades()));
+   
+}
+ 
+ 
+ 
+ 
+ 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="900.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionHardwareController">
+   <children>
+      <TableView fx:id="tabla" layoutX="280.0" layoutY="45.0" prefHeight="366.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="codigo" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="descripcion" prefWidth="183.0" text="Descripcion" />
+            <TableColumn fx:id="año" minWidth="8.0" prefWidth="73.0" text="Año" />
+            <TableColumn fx:id="precio" text="Precio" />
+            <TableColumn fx:id="unidades" prefWidth="84.0" text="Unidades" />
+        </columns>
+      </TableView>
+      <TextField fx:id="codigoInput" layoutX="34.0" layoutY="58.0" />
+      <Button fx:id="añadir" layoutX="280.0" layoutY="431.0" mnemonicParsing="false" onAction="#Añadir" text="Añadir Hardware" />
+      <TextField fx:id="nombreInput" layoutX="34.0" layoutY="106.0" />
+      <TextField fx:id="descripcionInput" layoutX="34.0" layoutY="157.0" />
+      <TextField fx:id="añoInput" layoutX="34.0" layoutY="216.0" />
+      <TextField fx:id="precioInput" layoutX="34.0" layoutY="261.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label layoutX="58.0" layoutY="37.0" text="Codigo" />
+      <Label layoutX="53.0" layoutY="91.0" text="Nombre" />
+      <Label layoutX="53.0" layoutY="142.0" text="Descripcion" />
+      <Label layoutX="53.0" layoutY="193.0" text="Año" />
+      <Label layoutX="58.0" layoutY="246.0" text="Precio" />
+      <Button fx:id="eliminar" layoutX="497.0" layoutY="431.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar Hardware" />
+      <Button fx:id="modificar" layoutX="707.0" layoutY="431.0" mnemonicParsing="false" onAction="#Modificar" text="Modificar Hardware" />
+      <Label layoutX="48.0" layoutY="296.0" text="Unidades" />
+      <TextField fx:id="unidadesInput" layoutX="34.0" layoutY="311.0" />
+      <Button fx:id="atras" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#Atras" prefHeight="25.0" prefWidth="38.0" text="&lt;" />
+      <Button fx:id="masUnidades" layoutX="204.0" layoutY="311.0" mnemonicParsing="false" onAction="#sumarUnidades" prefHeight="15.0" prefWidth="18.0" text="+" />
+      <Button fx:id="menosUnidades" layoutX="10.0" layoutY="311.0" mnemonicParsing="false" onAction="#restarUnidades" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Button fx:id="masPrecio" layoutX="204.0" layoutY="261.0" mnemonicParsing="false" onAction="#sumarPrecio" prefHeight="25.0" prefWidth="30.0" text="+" />
+      <Button fx:id="menosPrecio" layoutX="7.0" layoutY="261.0" mnemonicParsing="false" onAction="#restarPrecio" prefHeight="25.0" prefWidth="30.0" text="-" />
+      <Button fx:id="limpiar" layoutX="74.0" layoutY="361.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+   </children>
+</Pane>
