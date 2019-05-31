@@ -1,9 +1,10 @@
 package dto;
- /**
-  * clase de HardwareDTO
-  * @author Adrian y Samuel 
-  *
-  */
+/**
+ * clase de HardwareDTO
+ * @author Adrian y Samuel 
+ *
+ */
+
 public class HardwareDTO {
 	/**
 	 * parametros de la clase HardwareDTO
@@ -11,17 +12,17 @@ public class HardwareDTO {
     private int codigo;
     private String nombre;
     private String descripcion;
-    private int año;
+    private int anyo;
     private int precio;
     private int unidades;
-   /**
-    * constructor por defecto de la clase
-    */
+    /**
+     * constructor por defecto de la clase
+     */
     public HardwareDTO() {
         this.codigo=0;
         this.nombre="";
         this.descripcion="";
-        this.año= 0;
+        this.anyo= 0;
         this.precio=0;
         this.unidades=0;
     }
@@ -30,15 +31,15 @@ public class HardwareDTO {
      * @param codigo ,int codigo de identificacion
      * @param nombre ,String nombre del hardware en cuestion
      * @param descripcion ,String descripcion del objeto
-     * @param año ,int año de fabricacion 
+     * @param anyo ,int anyo de fabricacion 
      * @param precio ,int precio del productor 
      * @param unidades ,int unidades restantes 
      */
-    public HardwareDTO(int codigo, String nombre, String descripcion, int año, int precio, int unidades) {
+    public HardwareDTO(int codigo, String nombre, String descripcion, int anyo, int precio, int unidades) {
         this.codigo=codigo;
         this.nombre=nombre;
         this.descripcion=descripcion;
-        this.año=año;
+        this.anyo=anyo;
         this.precio=precio;
         this.unidades=unidades;
     }
@@ -101,16 +102,16 @@ public class HardwareDTO {
     /**
      * metodo getter para conocer el año
      * @return año , devuelve el atributo año de tipo int
-     */
-    public int getAño() {
-        return año;
+     */    
+    public int getAnyo() {
+        return anyo;
     }
     /**
      * metodo setter para establecer el año
      * @param año parametro que recibe el metodo de tipo int 
      */
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnyo(int anyo) {
+        this.anyo = anyo;
     }
     /**
      * metodo getter para conocer el precio 
@@ -131,9 +132,10 @@ public class HardwareDTO {
      */
     @Override
     public String toString() {
-        return "HardwareDTO [codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", año=" + año
+        return "HardwareDTO [codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", año=" + anyo
                 + ", precio=" + precio + ", unidades=" + unidades + "]";
     }
+   
     /**
      * metodo para sumar + 1 al precio 
      * @return precio int 

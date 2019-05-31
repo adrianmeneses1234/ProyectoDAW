@@ -52,7 +52,7 @@ public class LoginController  {
     	Parent root = (Parent)fxmlLoader.load();          
     	smc = fxmlLoader.<SelectorMenuController>getController();
     	smc.setNombre(this.username_box.getText());
-        smc.setContraseña(this.password_box.getText());
+        smc.setContrasenya(this.password_box.getText());
         
             Scene home_page_scene = new Scene(root);
             Stage app_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

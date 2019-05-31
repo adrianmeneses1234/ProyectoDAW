@@ -20,7 +20,7 @@
         </columns>
       </TableView>
       <TextField fx:id="codigoInput" layoutX="45.0" layoutY="52.0" />
-      <Button fx:id="añadir" layoutX="273.0" layoutY="410.0" mnemonicParsing="false" onAction="#AñadirSoftware" text="Añadir Software" />
+      <Button fx:id="anyadir" layoutX="273.0" layoutY="410.0" mnemonicParsing="false" onAction="#AnyadirSoftware" text="Añadir Software" />
       <TextField fx:id="nombreInput" layoutX="45.0" layoutY="106.0" />
       <TextField fx:id="descripcionInput" layoutX="45.0" layoutY="157.0" />
       <TextField fx:id="versionInput" layoutX="45.0" layoutY="212.0" />

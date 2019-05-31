@@ -15,15 +15,15 @@ public class jdbcHardwareDAO implements HardwareDAO{
 	 * inset en la base de datos que añade el obejto
 	 */
 	@Override
-	public void Añadir(HardwareDTO h) {
+	public void Anyadir(HardwareDTO h) {
 		PreparedStatement ps;
 		try {
-			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Hardware (CodigoHW, Nombre, Descripcion, Año, Precio, Unidades)"
+			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Hardware (CodigoHW, Nombre, Descripcion, Anyo, Precio, Unidades)"
 					+ " VALUES (?,?,?,?,?,? );");			
 			ps.setInt(1, h.getCodigo());
 			ps.setString(2, h.getNombre());
 			ps.setString(3, h.getDescripcion());
-			ps.setInt(4, h.getAño());
+			ps.setInt(4, h.getAnyo());
 			ps.setInt(5, h.getPrecio());
 			ps.setInt(6, h.getUnidades());
 			ps.executeUpdate();
@@ -64,10 +64,10 @@ public class jdbcHardwareDAO implements HardwareDAO{
 		PreparedStatement ps = null;
 		
 		try {
-			ps= conexion.getInstance().getConnection().prepareStatement("UPDATE Hardware SET Nombre =?, Descripcion=?, Año=?, Precio=?, Unidades=? WHERE CodigoHW=?;");
+			ps= conexion.getInstance().getConnection().prepareStatement("UPDATE Hardware SET Nombre =?, Descripcion=?, Anyo=?, Precio=?, Unidades=? WHERE CodigoHW=?;");
 			ps.setString(1, h.getNombre());
 			ps.setString(2, h.getDescripcion());
-			ps.setInt(3, h.getAño());
+			ps.setInt(3, h.getAnyo());
 			ps.setInt(4, h.getPrecio());
 			ps.setInt(5, h.getUnidades());
 			ps.setInt(6, h.getCodigo());

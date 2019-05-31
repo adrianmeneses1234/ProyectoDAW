@@ -14,9 +14,9 @@ public class jdbcLoginDAO implements LoginDAO {
 		PreparedStatement ps;
 		
 		try {
-		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre= ? AND Contraseña = ?;");
+		    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre= ? AND Contrasenya = ?;");
 			ps.setString(1, l.getNombre());
-			ps.setString(2, l.getContraseña());
+			ps.setString(2, l.getContrasenya());
 			
 			
 			ResultSet rs=ps.executeQuery();
@@ -39,9 +39,9 @@ public boolean LoginAdmin(LoginDTO l) {
 	PreparedStatement ps;
 	
 	try {
-	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contraseña =? AND Rol = 'Administrador';");
+	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contrasenya =? AND Rol = 'Administrador';");
 		ps.setString(1, l.getNombre());
-		ps.setString(2, l.getContraseña());
+		ps.setString(2, l.getContrasenya());
 		
 		
 		ResultSet rs=ps.executeQuery();
@@ -66,9 +66,9 @@ public boolean LoginProfesor(LoginDTO l) {
 	PreparedStatement ps;
 	
 	try {
-	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contraseña=? AND Rol=Profesor;");
+	    ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado WHERE Nombre=? AND Contrasenya=? AND Rol=Profesor;");
 		ps.setString(1, l.getNombre());
-		ps.setString(2, l.getContraseña());
+		ps.setString(2, l.getContrasenya());
 		
 		
 		ResultSet rs=ps.executeQuery();
@@ -94,15 +94,15 @@ public boolean LoginProfesor(LoginDTO l) {
 		
 		
 @Override
-	public void Añadir(LoginDTO l) {
+	public void Anyadir(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
 			ps=conexion.getInstance().getConnection().prepareStatement("INSERT INTO Empleado"
-					+ " (Identificador, Nombre, Contraseña, Rol)"
+					+ " (Identificador, Nombre, Contrasenya, Rol)"
 					+ " VALUES (?,?,?,?);");
 			ps.setInt(1, l.getIdentificador());
 			ps.setString(2, l.getNombre());
-			ps.setString(3, l.getContraseña());
+			ps.setString(3, l.getContrasenya());
 			ps.setString(4, l.getRol());
 			ps.executeUpdate();
 			ps.close();
@@ -130,10 +130,10 @@ public boolean LoginProfesor(LoginDTO l) {
 	public void Modificar(LoginDTO l) {
 		PreparedStatement ps = null;
 		try {
-			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE Empleado SET Nombre=?, Contraseña=?, Rol=? WHERE Identificador =?;");
+			ps = conexion.getInstance().getConnection().prepareStatement("UPDATE Empleado SET Nombre=?, Contrasenya=?, Rol=? WHERE Identificador =?;");
 			
 			ps.setString(1, l.getNombre());
-			ps.setString(2, l.getContraseña());
+			ps.setString(2, l.getContrasenya());
 			ps.setString(3, l.getRol());
 			ps.setInt(4, l.getIdentificador());
 			ps.executeUpdate();

@@ -42,7 +42,7 @@ public class GestionUsuariosController implements Initializable {
 	@FXML
 	private TextField nombreInput;
 	@FXML
-	private TextField contraseñaInput;
+	private TextField contrasenyaInput;
 	@FXML
 	private TextField rolInput;
 	@FXML
@@ -56,7 +56,7 @@ public class GestionUsuariosController implements Initializable {
 	
 	
 	@FXML
-	private Button añadir;
+	private Button anyadir;
 	@FXML
 	private Button modificar;
 	@FXML
@@ -73,7 +73,7 @@ public class GestionUsuariosController implements Initializable {
 	@FXML
 	private TableColumn<String, String> nombre;
 	@FXML
-	private TableColumn<String, String> contraseña;
+	private TableColumn<String, String> contrasenya;
 	@FXML
 	private TableColumn<String, String> rol;
 
@@ -87,7 +87,7 @@ public class GestionUsuariosController implements Initializable {
 		this.itemsTable=FXCollections.observableArrayList(new LoginDTO());
 		this.identificador= new TableColumn<String,Integer>();
 		this.nombre=new TableColumn<String, String>();
-		this.contraseña = new TableColumn<String, String>();
+		this.contrasenya = new TableColumn<String, String>();
 		this.rol= new TableColumn<String, String>();
 	}
 	@FXML
@@ -108,17 +108,17 @@ public class GestionUsuariosController implements Initializable {
 	
 
 	@FXML
-	private void Añadir(ActionEvent event) {
+	private void Anyadir(ActionEvent event) {
 		
 		
-		LoginDTO l = new LoginDTO(Integer.parseInt(identificadorInput.getText()), nombreInput.getText(), contraseñaInput.getText(), rolInput.getText());
-		if(!identificadorInput.getText().equals("") && !nombreInput.getText().equals("") && !contraseñaInput.getText().equals("") && !rolInput.getText().equals("")) 
+		LoginDTO l = new LoginDTO(Integer.parseInt(identificadorInput.getText()), nombreInput.getText(), contrasenyaInput.getText(), rolInput.getText());
+		if(!identificadorInput.getText().equals("") && !nombreInput.getText().equals("") && !contrasenyaInput.getText().equals("") && !rolInput.getText().equals("")) 
 		{
-			base.Añadir(l);
+			base.Anyadir(l);
 			itemsTable.add(l);
 			identificador.setCellValueFactory(new PropertyValueFactory("identificador"));
 			nombre.setCellValueFactory(new PropertyValueFactory("nombre"));
-			contraseña.setCellValueFactory(new PropertyValueFactory("contraseña"));
+			contrasenya.setCellValueFactory(new PropertyValueFactory("contrasenya"));
 			rol.setCellValueFactory(new PropertyValueFactory("rol"));
 			tabla.setItems(itemsTable);
 			
@@ -137,7 +137,7 @@ public class GestionUsuariosController implements Initializable {
 
 	@FXML
     private void Modificar(ActionEvent event) {
-		LoginDTO l = new LoginDTO(Integer.parseInt(identificadorInput.getText()), nombreInput.getText(), contraseñaInput.getText(), rolInput.getText());
+		LoginDTO l = new LoginDTO(Integer.parseInt(identificadorInput.getText()), nombreInput.getText(), contrasenyaInput.getText(), rolInput.getText());
 		base.Modificar(l);
 		itemsTable.set(posicionTabla, l);
 		
@@ -162,7 +162,7 @@ public class GestionUsuariosController implements Initializable {
 			ps = conexion.getInstance().getConnection().prepareStatement("SELECT * FROM Empleado");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				itemsTable.add(new LoginDTO(rs.getInt("identificador"),rs.getString("nombre"), rs.getString("contraseña"),rs.getString("rol") ));
+				itemsTable.add(new LoginDTO(rs.getInt("identificador"),rs.getString("nombre"), rs.getString("contrasenya"),rs.getString("rol") ));
 				tabla.setItems(itemsTable);
 				
 			}
@@ -179,7 +179,7 @@ public class GestionUsuariosController implements Initializable {
 		// TODO Auto-generated method stub
 		identificador.setCellValueFactory(new PropertyValueFactory("identificador"));
 		nombre.setCellValueFactory(new PropertyValueFactory("nombre"));
-		contraseña.setCellValueFactory(new PropertyValueFactory("contraseña"));
+		contrasenya.setCellValueFactory(new PropertyValueFactory("contrasenya"));
 		rol.setCellValueFactory(new PropertyValueFactory("rol"));
 		mostrar();
 		
@@ -213,7 +213,7 @@ public void ponerLoginSeleccionado() {
 		
 		identificadorInput.setText(Integer.toString(logindto.getIdentificador()));
 		nombreInput.setText(logindto.getNombre());
-		contraseñaInput.setText(logindto.getContraseña());
+		contrasenyaInput.setText(logindto.getContrasenya());
 		rolInput.setText(logindto.getRol());
 			}
 	

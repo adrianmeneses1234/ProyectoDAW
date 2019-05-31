@@ -35,12 +35,12 @@ public class SelectorMenuController{
 	private jdbcLoginDAO base;
 		
 	private String nombre;
-	private String contraseña;
+	private String contrasenya;
 
 public SelectorMenuController() {
 	this.base= new jdbcLoginDAO();
 	this.nombre="";
-	this.contraseña="";
+	this.contrasenya="";
 			
 }
 	
@@ -71,7 +71,7 @@ private void IrInventario(ActionEvent event) throws IOException {
 	@FXML
     private void IrUsuarios(ActionEvent event) throws IOException {
 		
-		LoginDTO l = new LoginDTO(this.nombre,this.contraseña);
+		LoginDTO l = new LoginDTO(this.nombre,this.contrasenya);
 		if(base.LoginAdmin(l)) {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/Gestion_Usuarios.fxml"));
 	    Scene principal = new Scene(log);
@@ -97,15 +97,15 @@ private void IrInventario(ActionEvent event) throws IOException {
 		
 		
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña=contraseña;
+	public void setContrasenya(String contraseña) {
+		this.contrasenya=contraseña;
 		
 	}
 	public String getNombre() {
 		return nombre;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenya() {
+		return contrasenya;
 	}
 
 

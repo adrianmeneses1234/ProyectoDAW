@@ -50,7 +50,7 @@ public class GestionSoftwareController implements Initializable {
 	private TextField unidadesInput;
 	
 	@FXML
-	private Button añadir;
+	private Button anyadir;
 	@FXML
 	private Button modificar;
 	@FXML
@@ -106,7 +106,7 @@ public class GestionSoftwareController implements Initializable {
 
 	
 	@FXML
-	private void AñadirSoftware(ActionEvent event) {
+	private void AnyadirSoftware(ActionEvent event) {
 				
 					SoftwareDTO d=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
 					
@@ -114,7 +114,7 @@ public class GestionSoftwareController implements Initializable {
 					
 						if(!codigoInput.getText().equals("") && !nombreInput.getText().equals("") && !descripcionInput.getText().equals("") && !versionInput.getText().equals("") && !LicenciaInput.getText().equals("") && !caducidadInput.getText().equals("") && !precioInput.getText().equals("") && !unidadesInput.getText().equals("")) 
 						{
-							baseSoft.AñadirSoftware(d);
+							baseSoft.AnyadirSoftware(d);
 							itemsTable.add(d);
 							codigo.setCellValueFactory(new PropertyValueFactory("Codigo"));
 							nombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
@@ -206,7 +206,7 @@ public class GestionSoftwareController implements Initializable {
 
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
-		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector Inventario.fxml"));
+		Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector_Inventario.fxml"));
 	    Scene principal = new Scene(log);
 	    Stage PrimaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    PrimaryStage.hide(); 

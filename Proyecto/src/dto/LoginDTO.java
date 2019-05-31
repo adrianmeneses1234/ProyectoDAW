@@ -12,7 +12,7 @@ public class LoginDTO {
 	 */
 	private int identificador;
 	private String nombre;
-	private  String contraseña;
+	private  String contrasenya;
 	private String rol;
 	/**
 	 * constructor por defecto
@@ -20,7 +20,7 @@ public class LoginDTO {
 	public LoginDTO() {
 		this.identificador=0;
 		this.nombre="";
-		this.contraseña="";
+		this.contrasenya="";
 		this.rol="";
 	}
 	/**
@@ -28,9 +28,9 @@ public class LoginDTO {
 	 * @param nombre tipo String
 	 * @param contraseña tipo String 
 	 */
-	public LoginDTO(String nombre, String contraseña) {
+	public LoginDTO(String nombre, String contrasenya) {
 		this.nombre=nombre;
-		this.contraseña=contraseña;
+		this.contrasenya=contrasenya;
 	}
 	/**
 	 * contructor parametrizado de la clase
@@ -39,10 +39,10 @@ public class LoginDTO {
 	 * @param contraseña tipo String
 	 * @param rol tipo String 
 	 */
-	public LoginDTO(int identificador,String nombre, String contraseña, String rol) {
+	public LoginDTO(int identificador,String nombre, String contrasenya, String rol) {
 		this.identificador=identificador;
 		this.nombre=nombre;
-		this.contraseña=contraseña;
+		this.contrasenya=contrasenya;
 		this.rol=rol;
 	}
 	/**
@@ -63,15 +63,15 @@ public class LoginDTO {
 	 * metodo getter para conocer la contraseña
 	 * @return contraseña tipo String 
 	 */
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenya() {
+		return contrasenya;
 	}
 	/**
 	 * metodo setter para establecer la contraseña
 	 * @param contraseña tipo String
 	 */
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenya(String contrasenya) {
+		this.contrasenya = contrasenya;
 	}
 	/**
 	 * metodo getter para conocer el Rol
@@ -106,7 +106,7 @@ public class LoginDTO {
 	 */
 	@Override
 	public String toString() {
-		return "LoginDTO [identificador=" + identificador + ", usuario=" + nombre + ", contraseña=" + contraseña
+		return "LoginDTO [identificador=" + identificador + ", usuario=" + nombre + ", contraseña=" + contrasenya
 				+ ", roles=" + rol + "]";
 	}
 	

@@ -15,7 +15,7 @@ public interface HardwareDAO {
 	 * @param h tipo HardwareDTO 
 	 * @throws SQLException
 	 */
-	public void Añadir(HardwareDTO h) throws SQLException;
+	public void Anyadir(HardwareDTO h) throws SQLException;
 	/**
 	 * metodo eliminar que recibe un hardaredeDTO y lo borra de la base
 	 * @param h tipo HardwareDTO 

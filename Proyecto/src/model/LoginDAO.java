@@ -39,7 +39,7 @@ public interface LoginDAO {
 	 * @param l tipo loginDTO
 	 * @throws SQLException
 	 */
-	public void Añadir(LoginDTO l) throws SQLException;
+	public void Anyadir(LoginDTO l) throws SQLException;
 	/**
 	 * metodo añadir que recibe un LoginDTO l lo busca en la base y lo elimina 
 	 * @param l tipo loginDTO

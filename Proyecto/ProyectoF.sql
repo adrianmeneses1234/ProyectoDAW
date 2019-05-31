@@ -17,7 +17,7 @@ CREATE TABLE Hardware (
 `Nombre` VARCHAR(30) NOT NULL,
 `Descripcion` VARCHAR(250) DEFAULT NULL,
 `Unidades` INTEGER(10) NOT NULL,
-`Año` INTEGER(4) DEFAULT NULL,
+`Anyo` INTEGER(4) DEFAULT NULL,
 `Precio` INTEGER(10) NOT NULL,
 
     PRIMARY KEY (`CodigoHW`)
@@ -79,10 +79,10 @@ CREATE TABLE Proveedores (
 ); 
 
 CREATE TABLE Empleado (
-    `IdentificadorE` INTEGER(10) NOT NULL,
-    `NombreE` VARCHAR(30) NOT NULL,
+    `Identificador` INTEGER(10) NOT NULL,
+    `Nombre` VARCHAR(30) NOT NULL,
     `Contraseña` VARCHAR(9) DEFAULT NULL,
-    `Roles` VARCHAR(25) DEFAULT NULL,
+    `Rol` VARCHAR(25) DEFAULT NULL,
 
     PRIMARY KEY (`IdentificadorE`)
 );
@@ -90,10 +90,10 @@ CREATE TABLE Empleado (
 CREATE TABLE Registro (
     `CodigoP` INTEGER(10) NOT NULL,
     `CodigoE` INTEGER(10) NOT NULL,
-    `IdentificadorE` INTEGER(10) NOT NULL,
+    `Identificador` INTEGER(10) NOT NULL,
     `Fecha` DATE DEFAULT NULL,
     `Lista` VARCHAR(250) DEFAULT NULL,
-    PRIMARY KEY (`IdentificadorE`, `CodigoP`,`CodigoE`),
+    PRIMARY KEY (`Identificador`, `CodigoP`,`CodigoE`),
     INDEX Registro_FKIndex4 (`CodigoP`),
     FOREIGN KEY (`CodigoP`)
         REFERENCES Proveedores (`CodigoP`)
@@ -106,16 +106,14 @@ CREATE TABLE Registro (
 
 CREATE TABLE Roles (
     `RolR` INTEGER(10) NOT NULL,
-    `Descripcion` VARCHAR(250) DEFAULT NULL,
-    
+    `Descripcion` VARCHAR(250) DEFAULT NULL,   
     PRIMARY KEY (`RolR`)
 );
 
 CREATE TABLE Tiene (
-    `IdentificadorE` INTEGER(10) NOT NULL,
-    `RolR` INTEGER(10) NOT NULL,
-    
-    PRIMARY KEY (`IdentificadorE`,`RolR`),
+    `Identificador` INTEGER(10) NOT NULL,
+    `RolR` INTEGER(10) NOT NULL,   
+    PRIMARY KEY (`Identificador`,`RolR`),
 INDEX Tiene_FKIndex6 (`RolR`),
     FOREIGN KEY (`RolR`)
         REFERENCES Roles (`RolR`)
@@ -123,18 +121,14 @@ INDEX Tiene_FKIndex6 (`RolR`),
 );
 
 CREATE TABLE Usuario (
-    `IdentificadorU` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`IdentificadorU`)
+    `Identificador` INTEGER(10) NOT NULL,
+    PRIMARY KEY (`Identificador`)
 );
 
 CREATE TABLE JefeDepartamento (
-   `IdentificadorJ` INTEGER(10) NOT NULL,
-    `IdentificadorE` INTEGER(10) NOT NULL,
-    PRIMARY KEY (`IdentificadorJ`),
-INDEX JefeDepartamento_FKIndex8 (`IdentificadorE`),
-    FOREIGN KEY (`IdentificadorE`)
-        REFERENCES Empleado (`IdentificadorE`)
-        ON UPDATE CASCADE ON DELETE RESTRICT
+   `Identificador` INTEGER(10) NOT NULL,  
+    PRIMARY KEY (`Identificador`),
+
 );
 
 CREATE TABLE Solicitud (
@@ -154,10 +148,6 @@ CREATE TABLE Profesor (
     `IdentificadorP` INTEGER(10) NOT NULL,
     `IdentificadorE` INTEGER(10) NOT NULL,
     PRIMARY KEY (`IdentificadorP`),
-INDEX Profesor_FKIndex9 (`IdentificadorE`),
-    FOREIGN KEY (`IdentificadorE`)
-        REFERENCES Empleado (`IdentificadorE`)
-        ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Ubicacion (
@@ -225,10 +215,6 @@ CREATE TABLE Tecnico (
       `IdentificadorT` INTEGER(10) NOT NULL,
     `IdentificadorE`  INTEGER(10) NOT NULL,
     PRIMARY KEY (`IdentificadorT`),
-INDEX Tecnico_FKIndex15 (`IdentificadorE`),
-    FOREIGN KEY (`IdentificadorE`)
-        REFERENCES Empleado (`IdentificadorE`)
-        ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Mensaje (
@@ -254,7 +240,7 @@ VALUES (10001, 'Ordenadores Windows' ,'Ordenadores con sistema operativo Windows
 	   (10002, 'Pantallas ','Pantallas que nos ayudarán a visualizar mejor el trabajo', '22',55,'Hardware');
        
        
-INSERT INTO Hardware(`CodigoHW`,`Nombre`,`Descripcion`, `Unidades`,`Año`, `Precio`)  
+INSERT INTO Hardware(`CodigoHW`,`Nombre`,`Descripcion`, `Unidades`,`Anyo`, `Precio`)  
 VALUES (20001, 'CPU' ,'Ayuda para mejorar el rendimiento general de nuestro ordenador', 12,2008, 145),
 	   (20002, 'Tarjeta Grafica ','mayor rendimiento en el ámbito gráfico para nuestras computadoras', 5,2011, 615);
        
@@ -279,7 +265,7 @@ VALUES (60001, 'BEEP Informática' ,'Nila', 'Monforte del Cid',968434236, 'Juan'
 	   (60002, 'PCBOX ','Mira', 'Petrer',659898125,'Pepe','www.PCBOX.com','PCBOX@gmail.com' );
        
        
-INSERT INTO Empleado(`IdentificadorE`,`NombreE`,`Contraseña`,`Roles`)  
+INSERT INTO Empleado(`Identificador`,`Nombre`,`Contrasenya`,`Rol`)  
 VALUES (70001, 'Adrian', 'batoi1234', 'Administrador' ),
 (70002, 'Samu', 'samu', 'Profesor' ),
 (70003, '*******','*******','Tecnico' ),

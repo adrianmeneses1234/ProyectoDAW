@@ -17,7 +17,7 @@ class Prueba {
         dto2.setCodigo(1);
         dto2.setNombre("Pantalla de Ordenador");
         dto2.setDescripcion("Nuevo");
-        dto2.setAño(2019);
+        dto2.setAnyo(2019);
         dto2.setPrecio(29);
         dto2.setUnidades(2);
         assertEquals(dto, dto2);
@@ -43,7 +43,7 @@ class Prueba {
         LoginDTO dto1 = new LoginDTO();
         dto1.setIdentificador(1);
         dto1.setNombre("samu");
-        dto1.setContraseña("contraseña");
+        dto1.setContrasenya("contraseña");
         dto1.setRol("administrador");
         assertEquals(dto,dto1);
     }
@@ -51,7 +51,7 @@ class Prueba {
     public void test4() {
         LoginDTO dto = new LoginDTO(1,"samu","contraseña","administrador");
        
-        LoginDTO dto2= new LoginDTO(dto.getIdentificador(),dto.getNombre(),dto.getContraseña(),dto.getRol());
+        LoginDTO dto2= new LoginDTO(dto.getIdentificador(),dto.getNombre(),dto.getContrasenya(),dto.getRol());
                
         assertEquals(dto,dto2);
     }

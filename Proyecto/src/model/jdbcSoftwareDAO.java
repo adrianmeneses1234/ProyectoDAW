@@ -8,7 +8,7 @@ import dto.SoftwareDTO;
 public class jdbcSoftwareDAO implements SoftwareDAO{
 	
 	@Override
-	public void AñadirSoftware(SoftwareDTO s) { 
+	public void AnyadirSoftware(SoftwareDTO s) { 
 		
 		PreparedStatement ps=null;
 		

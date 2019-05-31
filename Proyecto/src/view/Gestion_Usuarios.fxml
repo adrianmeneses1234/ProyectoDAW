@@ -6,14 +6,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionUsuariosController">
    <children>
-      <Button fx:id="añadir" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" onAction="#Añadir" text="Añadir" />
+      <Button fx:id="anyadir" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" onAction="#Anyadir" text="Añadir" />
       <Button fx:id="modificar" layoutX="244.0" layoutY="344.0" mnemonicParsing="false" onAction="#Modificar" text="Modificar" />
       <Button fx:id="eliminar" layoutX="477.0" layoutY="344.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" />
       <TableView fx:id="tabla" layoutX="158.0" layoutY="14.0" prefHeight="317.0" prefWidth="428.0">
         <columns>
           <TableColumn fx:id="identificador" prefWidth="109.0" text="Identificador" />
           <TableColumn fx:id="nombre" minWidth="9.0" prefWidth="77.0" text="Nombre" />
-            <TableColumn fx:id="contraseña" prefWidth="119.0" text="Contraseña" />
+            <TableColumn fx:id="contrasenya" prefWidth="119.0" text="Contraseña" />
             <TableColumn fx:id="rol" minWidth="0.0" prefWidth="122.0" text="Rol " />
         </columns>
       </TableView>
@@ -23,7 +23,7 @@
       <Label layoutX="57.0" layoutY="220.0" text="Rol" />
       <TextField fx:id="identificadorInput" layoutX="20.0" layoutY="59.0" prefHeight="25.0" prefWidth="122.0" />
       <TextField fx:id="nombreInput" layoutX="19.0" layoutY="122.0" prefHeight="25.0" prefWidth="122.0" />
-      <TextField fx:id="contraseñaInput" layoutX="20.0" layoutY="188.0" prefHeight="25.0" prefWidth="122.0" />
+      <TextField fx:id="contrasenyaInput" layoutX="20.0" layoutY="188.0" prefHeight="25.0" prefWidth="122.0" />
       <Button fx:id="atras" layoutX="13.0" layoutY="8.0" mnemonicParsing="false" onAction="#Atras" prefHeight="25.0" prefWidth="27.0" text="&lt;" />
       <TextField fx:id="rolInput" layoutX="20.0" layoutY="245.0" prefHeight="25.0" prefWidth="88.0" />
       <MenuButton fx:id="selector" layoutX="108.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0">

@@ -6,7 +6,7 @@ import dto.SoftwareDTO;
 
 public interface SoftwareDAO {
 	
-		public void AñadirSoftware(SoftwareDTO s) throws SQLException;
+		public void AnyadirSoftware(SoftwareDTO s) throws SQLException;
 		public void EliminarSoftware(SoftwareDTO s)throws SQLException;
 		public void modificarSoftware(SoftwareDTO s)throws SQLException;
 
