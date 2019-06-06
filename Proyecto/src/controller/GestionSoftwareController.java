@@ -254,7 +254,7 @@ public class GestionSoftwareController implements Initializable {
      * en el cual llama al FXML guardado en el package view y monta una nueva ventana 
      * con el nuevo FXML cerrando la ventana anterior en el proceso.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
 
 	@FXML
@@ -272,7 +272,7 @@ public class GestionSoftwareController implements Initializable {
 	/**
      * Creacion del metodo Limpiar en el cual limpia los Textfields .
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
 	@FXML
 	private void Limpiar(ActionEvent event) throws IOException {

@@ -101,14 +101,14 @@ public class HardwareDTO {
     }
     /**
      * Metodo getter para conocer el año
-     * @return año , devuelve el atributo año de tipo int
+     * @return anyo , devuelve el atributo año de tipo int
      */    
     public int getAnyo() {
         return anyo;
     }
     /**
      * Metodo setter para establecer el año
-     * @param año parametro que recibe el metodo de tipo int 
+     * @param anyo parametro que recibe el metodo de tipo int 
      */
     public void setAnyo(int anyo) {
         this.anyo = anyo;

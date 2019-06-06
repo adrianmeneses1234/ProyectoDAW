@@ -151,14 +151,14 @@ public class SoftwareDTO {
 	}
 	/**
 	 * Metodo setter para conocer la caducidad 
-	 * @param caducidad
+	 * @param caducidad tipo String
 	 */
 	public void setCaducidad(String caducidad) {
 		this.caducidad = caducidad;
 	}
 	/**
 	 * Metodo getter para conocer el precio
-	 * @return
+	 * @return precio tipo int
 	 */
 	public int getPrecio() {
 		return precio;

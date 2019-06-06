@@ -64,7 +64,7 @@ public class LoginController  {
      * de entrada de usuarios.  
      * Si no aparecerá el invalid_label indicando que el usuario o la contraseña es incorrecta.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {

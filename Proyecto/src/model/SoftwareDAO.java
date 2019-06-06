@@ -13,19 +13,19 @@ public interface SoftwareDAO {
 	/**
 	 * Metodo AnyadirSoftware que recibe un SoftwareDTO s y lo añade a la base de datos
 	 * @param s tipo SoftwareDTO 
-	 * @throws SQLException
+	 * @throws SQLException lanza la excepcion sobre la base de datos en MySQL
 	 */
 		public void AnyadirSoftware(SoftwareDTO s) throws SQLException;
 		/**
 		 * Metodo EliminarSoftware que recibe un SoftwareDTO s y lo borra de la base de datos
 		 * @param s tipo SoftwareDTO 
-		 * @throws SQLException
+		 * @throws SQLException lanza la excepcion sobre la base de datos en MySQL
 		 */
 		public void EliminarSoftware(SoftwareDTO s)throws SQLException;
 		/**
 		 * Metodo modificarSoftware que recibe un SoftwareDTO s y lo modifica si lo encuentra en la base de datos
 		 * @param s tipo SoftwareDTO
-		 * @throws SQLException
+		 * @throws SQLException lanza la excepcion sobre la base de datos en MySQL
 		 */
 		public void modificarSoftware(SoftwareDTO s)throws SQLException;
 

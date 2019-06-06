@@ -168,7 +168,7 @@ private void Modificar(ActionEvent event) {
      * en el cual llama al FXML guardado en el package view y monta una nueva ventana 
      * con el nuevo FXML cerrando la ventana anterior en el proceso.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
     @FXML
     private void Atras(ActionEvent event) throws IOException {
@@ -185,7 +185,7 @@ private void Modificar(ActionEvent event) {
     /**
      * Creacion del metodo Limpiar en el cual limpia los Textfields .
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
     @FXML
 	private void Limpiar(ActionEvent event) throws IOException {
@@ -199,6 +199,7 @@ private void Modificar(ActionEvent event) {
 /**
  * El metodo mostrar recoge los datos de la tabla Hardware de nuestro SQL, crea objetos HardwareDTO con esos datos
  *  y los pega al TableView tabla
+ *  
  */
     public void mostrar() {
         PreparedStatement ps = null;

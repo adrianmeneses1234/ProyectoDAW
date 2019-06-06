@@ -26,7 +26,7 @@ public class LoginDTO {
 	/**
 	 * Contructor parametrizado de la clase para establecer un nombre y contraseña
 	 * @param nombre tipo String
-	 * @param contraseña tipo String 
+	 * @param contrasenya tipo String 
 	 */
 	public LoginDTO(String nombre, String contrasenya) {
 		this.nombre=nombre;
@@ -36,7 +36,7 @@ public class LoginDTO {
 	 * Contructor parametrizado de la clase
 	 * @param identificador tipo int
 	 * @param nombre tipo String
-	 * @param contraseña tipo String
+	 * @param contrasenya tipo String
 	 * @param rol tipo String 
 	 */
 	public LoginDTO(int identificador,String nombre, String contrasenya, String rol) {
@@ -68,7 +68,7 @@ public class LoginDTO {
 	}
 	/**
 	 * Metodo setter para establecer la contraseña
-	 * @param contraseña tipo String
+	 * @param contrasenya tipo String
 	 */
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;

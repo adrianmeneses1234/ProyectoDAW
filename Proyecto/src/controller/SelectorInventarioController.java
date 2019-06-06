@@ -37,7 +37,7 @@ public class SelectorInventarioController implements Initializable {
      * en el cual llama al FXML guardado en el package view Gestion_Inventario_Hardware.fxml y monta una nueva ventana 
      * con el nuevo FXML cerrando la ventana anterior en el proceso.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
 	@FXML
 	private void IrHardware(ActionEvent event) throws IOException {
@@ -54,7 +54,7 @@ public class SelectorInventarioController implements Initializable {
      * en el cual llama al FXML guardado en el package view Gestion_Inventario_Software.fxml y monta una nueva ventana 
      * con el nuevo FXML cerrando la ventana anterior en el proceso.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
 	@FXML
 	private void IrSoftware(ActionEvent event) throws IOException {
@@ -71,7 +71,7 @@ public class SelectorInventarioController implements Initializable {
      * en el cual llama al FXML guardado en el package view selectorMenu.fxml y monta una nueva ventana 
      * con el nuevo FXML cerrando la ventana anterior en el proceso.
      * @param event tipo ActionEvent
-     * @throws IOException
+     * @throws IOException lanza la excepcion de IOController
      */
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
