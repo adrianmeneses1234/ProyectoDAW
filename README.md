@@ -1,11 +1,11 @@
 # ProyectoDAW
 
-Participantes: Adrian Meneses y Alexis
+Participantes: Adrian Meneses y Samuel
 
 Division de Tareas:
 
-Adrián: Base de Datos, Diagramas E-R, Esquema Relacional y SQL.
+Adrián: Base de Datos, SQL y Programacion.
 
-Alexis: Entornos de Programación, Diagrama de Clases y Diagramas de Casos de Uso
+SAmuel: Entornos de Programación, Diagrama de Clases y Diagramas de Casos de Uso
 
 Proyecto de DAW 
