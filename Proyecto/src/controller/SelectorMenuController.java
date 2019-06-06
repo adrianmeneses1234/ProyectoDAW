@@ -18,8 +18,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.jdbcLoginDAO;
-
+/**declaracion de la clase SelectorMenuController
+ * 
+ * @author Adrian y Samuel
+ *@version 06/06/19
+ */
 public class SelectorMenuController{
+	 //declaracion de los atributos privados
+		/**
+		 * Declaracion de los atributos privados de FXML
+		 * 
+		 */	
 	@FXML
 	private Button atras;
 	@FXML
@@ -30,13 +39,19 @@ public class SelectorMenuController{
 	private Label invalid_label;
 	
 	
-	
+	 /**
+	    * Declaracion de los atributos privados de la clase que no corresponden con
+	    * el FXML y llamar a la clase jdbcLoginDAO.
+	    */
 	
 	private jdbcLoginDAO base;
 		
 	private String nombre;
 	private String contrasenya;
-
+	
+	  /**
+     * creacion del constructor por defecto de la clase
+     */
 public SelectorMenuController() {
 	this.base= new jdbcLoginDAO();
 	this.nombre="";
@@ -44,7 +59,12 @@ public SelectorMenuController() {
 			
 }
 	
-			
+/**Creacion del metodo Atras en el cual al dar al boton se activa el evento
+ * en el cual llama al FXML guardado en el package view inicio.fxml y monta una nueva ventana 
+ * con el nuevo FXML cerrando la ventana anterior en el proceso.
+ * @param event tipo ActionEvent
+ * @throws IOException
+ */		
 @FXML
 private void Atras(ActionEvent event) throws IOException {
 	Parent home_page_parent =  FXMLLoader.load(getClass().getResource("/view/inicio.fxml"));
@@ -56,6 +76,12 @@ private void Atras(ActionEvent event) throws IOException {
 
 
 }
+/**Creacion del metodo IrInventario en el cual al dar al boton se activa el evento
+ * en el cual llama al FXML guardado en el package view Selector_Inventario.fxml y monta una nueva ventana 
+ * con el nuevo FXML cerrando la ventana anterior en el proceso.
+ * @param event tipo ActionEvent
+ * @throws IOException
+ */
 @FXML
 private void IrInventario(ActionEvent event) throws IOException {
 	Parent log =  FXMLLoader.load(getClass().getResource("/view/Selector_Inventario.fxml"));
@@ -68,6 +94,14 @@ private void IrInventario(ActionEvent event) throws IOException {
 
 
 }
+/**Creacion del metodo IrUsuarios en el cual al dar al boton se activa el evento
+ * en el cual recoge los String nombre y contraseña recogidos anteriormente en el LoginController y se pasa al metodo LoginAdmin
+ * de la clase jdbcLoginDAO para comprobar si es un Administrador. Si lo es llama al FXML guardado en el package view 
+ * Selector_Inventario.fxml y monta una nueva ventana con el nuevo FXML cerrando la ventana anterior en el proceso.
+ * Si no aparecerá el invalid_label indicando que el usuario no puede entrar.
+ ** @param event tipo ActionEvent
+ * @throws IOException
+ */
 	@FXML
     private void IrUsuarios(ActionEvent event) throws IOException {
 		
@@ -90,20 +124,35 @@ private void IrInventario(ActionEvent event) throws IOException {
 
 	
 		
-	
+	/**
+     * metodo setter de la clase para establecer el nombre
+     * @param string, String parametro de tipo String que recibe para establecer el nombre 
+     */
 	public void setNombre(String string) {
 		// TODO Auto-generated method stub
 		this.nombre = string;
 		
 		
 	}
+	/**
+     * metodo setter de la clase para establecer la contraseña
+     * @param contraseña, String parametro de tipo String que recibe para establecer la contraseña 
+     */
 	public void setContrasenya(String contraseña) {
 		this.contrasenya=contraseña;
 		
 	}
+	 /**
+     *  metodo getter de la clase para conocer el nombre 
+     * @return nombre , atributo de tipo String de la clase
+     */
 	public String getNombre() {
 		return nombre;
 	}
+	 /**
+     *  metodo getter de la clase para conocer la contraseña 
+     * @return contraseña , atributo de tipo String de la clase
+     */
 	public String getContrasenya() {
 		return contrasenya;
 	}

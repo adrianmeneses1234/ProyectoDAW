@@ -3,11 +3,30 @@ package model;
 import java.sql.SQLException;
 
 import dto.SoftwareDTO;
-
+/**
+ * Clase interfaz de la clase SoftwareDAO
+ * que incluye los metodos usados en la clase jdbcSoftwareDAO 
+ * @author Adrian y Samuel
+ * @version 06/06/19 
+ */
 public interface SoftwareDAO {
-	
+	/**
+	 * metodo AnyadirSoftware que recibe un SoftwareDTO s y lo añade a la base
+	 * @param s tipo SoftwareDTO 
+	 * @throws SQLException
+	 */
 		public void AnyadirSoftware(SoftwareDTO s) throws SQLException;
+		/**
+		 * metodo EliminarSoftware que recibe un SoftwareDTO s y lo borra de la base
+		 * @param s tipo SoftwareDTO 
+		 * @throws SQLException
+		 */
 		public void EliminarSoftware(SoftwareDTO s)throws SQLException;
+		/**
+		 * metodo modificarSoftware que recibe un SoftwareDTO s y lo modifica si lo encuentra en la base 
+		 * @param s tipo SoftwareDTO
+		 * @throws SQLException
+		 */
 		public void modificarSoftware(SoftwareDTO s)throws SQLException;
 
 	

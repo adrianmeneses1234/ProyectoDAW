@@ -5,9 +5,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dto.LoginDTO;
-
+/**
+ * Clase jdbcLoginDAO del modelo que gestiona la base de datos 
+ * esta clase implementa los metodos establecidos en la interfaz LoginDAO
+ * @author Adrian y Samuel.
+ * @version 06/06/19 
+ *
+ */
 public class jdbcLoginDAO implements LoginDAO {
-	
+	/**
+	 * El metodo boolean Login recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+	 * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos.
+	 * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
+	 * el proceso.
+	 * @param l tipo LoginDTO
+	 * @return let_in tipo boolean true or false
+	 *  
+	 */
 @Override
 	public boolean Login(LoginDTO l) {
 		boolean let_in = false;
@@ -34,6 +48,16 @@ public class jdbcLoginDAO implements LoginDAO {
 				return let_in;
 		}
 @Override
+/**
+ * El metodo boolean LoginAdmin recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+ * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos,
+ * ademas de contener el rol de Administrador.
+ * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
+ * el proceso.
+ * @param l tipo LoginDTO
+ * @return let_in tipo boolean true or false
+ *  
+ */
 public boolean LoginAdmin(LoginDTO l) {
 	boolean let_in = false;
 	PreparedStatement ps;
@@ -59,7 +83,16 @@ public boolean LoginAdmin(LoginDTO l) {
 			return let_in;
 	}
 	
-
+/**
+ * El metodo boolean LoginProfesor recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+ * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos,
+ * ademas de contener el rol de Profesor.
+ * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
+ * el proceso.
+ * @param l tipo LoginDTO
+ * @return let_in tipo boolean true or false
+ *  
+ */
 @Override
 public boolean LoginProfesor(LoginDTO l) {
 	boolean let_in = false;
@@ -89,7 +122,11 @@ public boolean LoginProfesor(LoginDTO l) {
 
 
 
-
+/**
+ * metodo Añadir que recibe un LoginDTO l y mediante un prepareStatement se ejecuta un
+ * inset en la base de datos que añade el objeto.
+ * @param l tipo LoginDTO 
+ */
 				
 		
 		
@@ -112,6 +149,11 @@ public boolean LoginProfesor(LoginDTO l) {
 		}
 		
 	}
+/**
+ * Metodo Eliminar que recibe un Objeto LoginDTO l y ejecuta una query que borra el objeto si coincide el codigo
+ * con alguna de la base.
+ * @param l tipo LoginDTO    
+ */
 @Override
 	public void Eliminar(LoginDTO l) {
 		PreparedStatement ps = null;
@@ -126,6 +168,11 @@ public boolean LoginProfesor(LoginDTO l) {
 		}
 		
 	}
+/**
+ * Metodo Modificar que recibe un objeto LoginDTO l y ejecuta una query que actualiza la base si datos si encuentra
+ * un codigo igual al del objeto que recibe el metodo .
+ * @param l tipo LoginDTO. 
+ */
 @Override
 	public void Modificar(LoginDTO l) {
 		PreparedStatement ps = null;

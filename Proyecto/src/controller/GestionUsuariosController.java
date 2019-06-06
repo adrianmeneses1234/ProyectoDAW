@@ -33,9 +33,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcLoginDAO;
-
+/**declaracion de la clase GestionUsuariosController
+ * 
+ * @author Adrian y Samuel
+ *@version 06/06/19
+ */
 public class GestionUsuariosController implements Initializable {
-		
+	 //declaracion de los atributos privados
+	/**
+	 * Declaracion de los atributos privados de FXML
+	 * 
+	 */	
 	
 	@FXML
 	private TextField identificadorInput;
@@ -76,11 +84,16 @@ public class GestionUsuariosController implements Initializable {
 	private TableColumn<String, String> contrasenya;
 	@FXML
 	private TableColumn<String, String> rol;
-
+	/**
+	    * Declaracion de los atributos privados de la clase que no corresponden con
+	    * el FXML y llamar a la clase jdbcLoginDAO
+	    */
 	private ObservableList<LoginDTO> itemsTable;
 	private jdbcLoginDAO base;
 	private int posicionTabla;
-	
+	 /**
+     * creacion del constructor por defecto de la clase
+     */
 	public GestionUsuariosController() {
 		this.base= new jdbcLoginDAO();
 		this.tabla=new TableView<LoginDTO>();
@@ -90,22 +103,39 @@ public class GestionUsuariosController implements Initializable {
 		this.contrasenya = new TableColumn<String, String>();
 		this.rol= new TableColumn<String, String>();
 	}
+	/**
+	 * El metodo AdministradorInput en el cual al dar click a su opcion se limpia el textField rolInput y se pone Administrador
+	 * @param event tipo ActionEvent
+	 */
 	@FXML
 	private void AdministradorInput(ActionEvent event) {
 		rolInput.clear();
 		rolInput.setText("Administrador");
 	}
+	/**
+	 * El metodo ProfesorInput en el cual al dar click a su opcion se limpia el textField rolInput y se pone Profesor
+	 * @param event tipo ActionEvent
+	 */
 	@FXML
 	private void ProfesorInput(ActionEvent event) {
 		rolInput.clear();
 		rolInput.setText("Profesor");
 	}
+	/**
+	 * El metodo TecnicoInput en el cual al dar click a su opcion se limpia el textField rolInput y se pone Tecnico
+	 * @param event tipo ActionEvent
+	 */
 	@FXML
 	private void TecnicoInput(ActionEvent event) {
 		rolInput.clear();
 		rolInput.setText("Tecnico");
 	}
-	
+	 /**
+     * Creacion del metodo Anyadir donde al hacer click se realiza la acción de 
+     * recoger los datos de sus respectivos TextFields y crea un objeto LoginDTO en el cual quedará 
+     * guardado en el SQL y la tabla TableView con SetItems.
+     * @param event tipo ActionEvent
+     */
 
 	@FXML
 	private void Anyadir(ActionEvent event) {
@@ -126,6 +156,11 @@ public class GestionUsuariosController implements Initializable {
 
 					
 	}
+	/**Creacion del metodo Eliminar donde se selecciona un objeto de la tabla
+     * y al hacer click en el boton event se elimina el objeto LoginDTO del SQL y de la tabla
+     * 
+     * @param event tipo ActionEvent
+     */
 	@FXML
     private void Eliminar(ActionEvent event) {
 		LoginDTO seleccion = tabla.getSelectionModel().getSelectedItem();
@@ -134,6 +169,12 @@ public class GestionUsuariosController implements Initializable {
 
 		
 			}
+	 /**Creacion del metodo Modificar en el cual coge los datos recogidos en los 
+     * TextFields y si coinciden el codigo se modifican los demas parametros del objeto
+     * LoginDTO. Estas modificaciones se guardan en la tabla Tableview y en el SQL
+     * 
+     * @param event tipo ActionEvent
+     */
 
 	@FXML
     private void Modificar(ActionEvent event) {
@@ -143,6 +184,12 @@ public class GestionUsuariosController implements Initializable {
 		
 		
 	}
+	 /**Creacion del metodo Atras en el cual al dar al boton se activa el evento
+     * en el cual llama al FXML guardado en el package view y monta una nueva ventana 
+     * con el nuevo FXML cerrando la ventana anterior en el proceso.
+     * @param event tipo ActionEvent
+     * @throws IOException
+     */
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
 		Parent log =  FXMLLoader.load(getClass().getResource("/view/selectorMenu.fxml"));
@@ -155,6 +202,11 @@ public class GestionUsuariosController implements Initializable {
 
 
 	}
+	
+	/**
+	 * El metodo mostrar recoge los datos de la tabla Empleado de nuestro SQL, crea objetos HardwareDTO con esos datos
+	 *  y los pega al TableView tabla
+	 */
 	public void mostrar() {
 		PreparedStatement ps = null;
 		
@@ -173,7 +225,10 @@ public class GestionUsuariosController implements Initializable {
 			e.printStackTrace();
 		}		
 		}
-
+	/**
+	  * El metodo initialize recoge los datos que queremos mostrar al
+	  * entrar en el controlador GestionUsuariosController
+	  */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -187,7 +242,10 @@ public class GestionUsuariosController implements Initializable {
 		tablaSel.addListener(seleccionar);
 
 	}
-	
+	 /**
+	    * El constructor ListChangeListener recoge un objeto LoginDTO y sus datos varian dependiendo del seleccionado
+	    * llamando al metodo ponerLoginSeleccionado
+	    */
 	private final ListChangeListener<LoginDTO> seleccionar =
 			new ListChangeListener<LoginDTO>() {
 		@Override
@@ -195,7 +253,11 @@ public class GestionUsuariosController implements Initializable {
 			ponerLoginSeleccionado();
 		}
 	};
-	
+	/**
+	    * El metodo seleccion recoge un elemento LoginDTO selecionado de la tabla y
+	    * si no hay elementos LoginDTO en la tabla devuelve null
+	    * @return LoginDTO competicionSeleccionada or null
+	    */
 public LoginDTO seleccion() {
 	if(tabla !=null) {
 		List<LoginDTO> TABLA = (List<LoginDTO>) tabla.getSelectionModel().getSelectedItems();
@@ -206,6 +268,12 @@ public LoginDTO seleccion() {
 	}
 	return null;
 }
+
+
+/**
+ * El metodo ponerLoginSeleccionado recoge los datos del LoginDTO recogido del metodo seleccion descrito
+ * anteriormente y pone sus datos en sus respectivos TextFields
+ */
 public void ponerLoginSeleccionado() {
 	final LoginDTO logindto = seleccion();
 	posicionTabla = itemsTable.indexOf(logindto);

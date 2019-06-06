@@ -113,7 +113,7 @@ public class GestionHardwareController implements Initializable {
     }
     /**
      * Creacion del metodo Anyadir donde al hacer click se realiza la acción de 
-     * recoger los datos de sus respectivos TextFields y crea un usuario en el cual quedará 
+     * recoger los datos de sus respectivos TextFields y crea un objeto HardwareDTO en el cual quedará 
      * guardado en el SQL y la tabla TableView con SetItems.
      * @param event tipo ActionEvent
      */
@@ -283,7 +283,7 @@ public void ponerHardwareSeleccionado() {
    
 }
 /**
- * 
+ * Creacion del metodo sumarPrecio en el cual al hacer click en el boton se añade +1 al Integer precio en el TextField precioInput
  * @param event tipo ActionEvent
  */
  
@@ -296,7 +296,7 @@ public void sumarPrecio(ActionEvent event) {
    
 }
 /**
- * 
+ * Creacion del metodo restarPrecio en el cual al hacer click en el boton se resta 1 al Integer precio en el TextField precioInput
  * @param event tipo ActionEvent
  */
 @FXML
@@ -308,7 +308,7 @@ public void restarPrecio(ActionEvent event) {
    
 }
 /**
- * 
+ * Creacion del metodo sumarUnidades en el cual al hacer click en el boton se añade +1 al Integer unidades en el TextField unidadesInput
  * @param event tipo ActionEvent
  */
 @FXML
@@ -320,7 +320,7 @@ public void sumarUnidades(ActionEvent event) {
    
 }
 /**
- * 
+ * Creacion del metodo restarUnidades en el cual al hacer click en el boton se resta 1 al Integer unidades en el TextField unidadesInput
  * @param event tipo ActionEvent
  */
 @FXML

@@ -28,9 +28,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcSoftwareDAO;
-
+/**declaracion de la clase GestionSoftwareController
+ * 
+ * @author Adrian y Samuel
+ *@version 06/06/19
+ */
 public class GestionSoftwareController implements Initializable {
-	
+	 //declaracion de los atributos privados
+		/**
+		 * Declaracion de los atributos privados de FXML
+		 * 
+		 */
 	private jdbcSoftwareDAO baseSoft;
 	@FXML
 	private TextField codigoInput;
@@ -84,11 +92,16 @@ public class GestionSoftwareController implements Initializable {
 	private TableColumn<String, Integer> precio;
 	@FXML
 	private TableColumn<String, Integer> unidades;
-	
+	/**
+	    * Declaracion de los atributos privados de la clase que no corresponden con
+	    * el FXML y llamar a la clase jdbcSoftwareDAO
+	    */
 	private ObservableList<SoftwareDTO> itemsTable;
 	
 	private int posicionS;
-	
+	 /**
+     * creacion del constructor por defecto de la clase
+     */
 	public GestionSoftwareController() {
 		this.baseSoft = new jdbcSoftwareDAO();
 		this.tabla= new TableView<SoftwareDTO>();
@@ -103,7 +116,12 @@ public class GestionSoftwareController implements Initializable {
 		this.unidades= new TableColumn<String,Integer>();
 		
 	}
-
+	 /**
+     * Creacion del metodo AnyadirSoftware donde al hacer click se realiza la acción de 
+     * recoger los datos de sus respectivos TextFields y crea un objeto SoftwareDTO en el cual quedará 
+     * guardado en el SQL y la tabla TableView con SetItems.
+     * @param event tipo ActionEvent
+     */
 	
 	@FXML
 	private void AnyadirSoftware(ActionEvent event) {
@@ -127,6 +145,11 @@ public class GestionSoftwareController implements Initializable {
 							tabla.setItems(itemsTable);
 						}
 						}
+	/**Creacion del metodo EliminarSoftware donde se selecciona un objeto de la tabla
+     * y al hacer click en el boton event se elimina el objeto del SQL y de la tabla
+     * 
+     * @param event tipo ActionEvent
+     */
 	@FXML
 	private void EliminarSoftware(ActionEvent event) {
 			
@@ -137,6 +160,12 @@ public class GestionSoftwareController implements Initializable {
 				
 	
 		}
+	 /**Creacion del metodo ModificarSoftware en el cual coge los datos recogidos en los 
+     * TextFields y si coinciden el codigo se modifican los demas parametros del objeto
+     * SoftwareDTO. Estas modificaciones se guardan en la tabla Tableview y en el SQL
+     * 
+     * @param event tipo ActionEvent
+     */
 	@FXML
 	private void ModificarSoftware(ActionEvent event) {
 			//SoftwareDTO seleccion =  tabla.getSelectionModel().getSelectedItem();
@@ -147,7 +176,10 @@ public class GestionSoftwareController implements Initializable {
 			baseSoft.modificarSoftware(AUX);
 			itemsTable.set(posicionS,AUX);
 		}
-	
+	/**
+	 * Creacion del metodo sumar en el cual al hacer click en el boton se añade +1 al Integer unidades en el TextField unidadesInput
+	 * @param event tipo ActionEvent
+	 */
 	@FXML
 	private void sumar(ActionEvent event) {
 		SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
@@ -156,6 +188,10 @@ public class GestionSoftwareController implements Initializable {
 		unidadesInput.setText(Integer.toString(AUX.getUnidades()));
 		
 	}
+	/**
+	 * Creacion del metodo restar en el cual al hacer click en el boton se resta 1 al Integer unidades en el TextField unidadesInput
+	 * @param event tipo ActionEvent
+	 */
 	@FXML
 	private void restar(ActionEvent event) {
 		SoftwareDTO AUX=new SoftwareDTO(Integer.parseInt(codigoInput.getText()),nombreInput.getText(),descripcionInput.getText(),versionInput.getText(),LicenciaInput.getText(),caducidadInput.getText(),Integer.parseInt(precioInput.getText()),Integer.parseInt(unidadesInput.getText()));
@@ -164,6 +200,10 @@ public class GestionSoftwareController implements Initializable {
 		unidadesInput.setText(Integer.toString(AUX.getUnidades()));
 
 	}
+	 /**
+	    * El constructor ListChangeListener recoge un objeto SoftwareDTO y sus datos varian dependiendo del seleccionado
+	    * llamando al metodo ponerSoftwareSeleccionado
+	    */
 	private final ListChangeListener<SoftwareDTO> selectorTablaSoftware =
 			new ListChangeListener<SoftwareDTO>() {
 				@Override
@@ -172,7 +212,11 @@ public class GestionSoftwareController implements Initializable {
 				}
 				
 		};
-
+		 /**
+		    * El metodo getTablaSoftwareSeleccionada recoge un elemento SoftwareDTO selecionado de la tabla y
+		    * si no hay elementos SoftwareDTO en la tabla devuelve null
+		    * @return SoftwareDTO competicionSeleccionada or null
+		    */
 		public SoftwareDTO getTablaSoftwareSeleccionada() {
 			if(tabla != null) {
 				List<SoftwareDTO> TABLA = tabla.getSelectionModel().getSelectedItems();
@@ -184,7 +228,10 @@ public class GestionSoftwareController implements Initializable {
 			return null;
 			
 		}
-		
+		/**
+		 * El metodo ponerSoftwareSeleccionado recoge los datos del SoftwareDTO recogido del metodo seleccion descrito
+		 * anteriormente y pone sus datos en sus respectivos TextFields
+		 */
 	private void ponerSoftwareSeleccionado() {
 		final SoftwareDTO s = getTablaSoftwareSeleccionada();
 		posicionS = itemsTable.indexOf(s);
@@ -203,6 +250,12 @@ public class GestionSoftwareController implements Initializable {
 			
 		}
 	}
+	  /**Creacion del metodo Atras en el cual al dar al boton se activa el evento
+     * en el cual llama al FXML guardado en el package view y monta una nueva ventana 
+     * con el nuevo FXML cerrando la ventana anterior en el proceso.
+     * @param event tipo ActionEvent
+     * @throws IOException
+     */
 
 	@FXML
 	private void Atras(ActionEvent event) throws IOException {
@@ -216,6 +269,11 @@ public class GestionSoftwareController implements Initializable {
 
 
 	}
+	/**
+     * Creacion del metodo Limpiar en el cual limpia los Textfields .
+     * @param event tipo ActionEvent
+     * @throws IOException
+     */
 	@FXML
 	private void Limpiar(ActionEvent event) throws IOException {
 		codigoInput.clear();
@@ -228,7 +286,10 @@ public class GestionSoftwareController implements Initializable {
 		unidadesInput.clear();
 	}
 
-	
+	/**
+	 * El metodo mostrar recoge los datos de la tabla Software de nuestro SQL, crea objetos SoftwareDTO con esos datos
+	 *  y los pega al TableView tabla
+	 */
 	public void mostrar() {
 		PreparedStatement ps = null;
 		
@@ -247,7 +308,10 @@ public class GestionSoftwareController implements Initializable {
 			e.printStackTrace();
 		}		
 		}
-
+	/**
+	  * El metodo initialize recoge los datos que queremos mostrar al
+	  * entrar en el controlador GestionSoftwareController
+	  */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

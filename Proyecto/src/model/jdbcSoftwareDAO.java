@@ -4,9 +4,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import dto.SoftwareDTO;
-
+/**
+ * Clase jdbcSoftwareDAO del modelo que gestiona la base de datos 
+ * esta clase implementa los metodos establecidos en la interfaz SoftwareDAO
+ * @author Adrian y Samuel.
+ * @version 06/06/19 
+ *
+ */
 public class jdbcSoftwareDAO implements SoftwareDAO{
-	
+	/**
+	 * metodo AnyadirSoftware que recibe un SoftwareDTO s y mediante un prepareStatement se ejecuta un
+	 * in set en la base de datos que añade el objeto.
+	 * @param s tipo SoftwareDTO 
+	 */
 	@Override
 	public void AnyadirSoftware(SoftwareDTO s) { 
 		
@@ -32,6 +42,11 @@ public class jdbcSoftwareDAO implements SoftwareDAO{
 	
 		
 	}
+	/**
+	 * metodo EliminarSoftware que recibe un Objeto SoftwareDTO d y ejecuta una query que borra el objeto si coincide el codigo
+	 * con alguna de la base.
+	 * @param d tipo SoftwareDTO    
+	 */
 	@Override
 	public void EliminarSoftware(SoftwareDTO d) {
 		PreparedStatement ps=null;
@@ -47,6 +62,11 @@ public class jdbcSoftwareDAO implements SoftwareDAO{
 		}
 		
 	}
+	/**
+	 * metodo modificarSoftware que recibe un objeto SoftwareDTO d y ejecuta una query que actualiza la base si datos si encuentra
+	 * un codigo igual al del objeto que recibe el metodo .
+	 * @param d tipo SoftwareDTO. 
+	 */
 	@Override
 	public void modificarSoftware(SoftwareDTO d) {
 		PreparedStatement ps=null;

@@ -5,14 +5,16 @@ import java.sql.SQLException;
 import dto.HardwareDTO;
 /**
  * Clase jdbcHardareDAO del modelo que gestiona la base de datos 
- * esta clase implementa los metodos estblecidos en la interfaz HardwareDAO
- * @author Adrian y Samuel 
+ * esta clase implementa los metodos establecidos en la interfaz HardwareDAO
+ * @author Adrian y Samuel.
+ * @version 06/06/19 
  *
  */
 public class jdbcHardwareDAO implements HardwareDAO{
 	/**
-	 * metodo añadir que recibe un hardareDTO h y mediante un prepareStatement se ejecuta un
-	 * inset en la base de datos que añade el obejto
+	 * metodo Anyadir que recibe un HardwareDTO h y mediante un prepareStatement se ejecuta un
+	 * inset en la base de datos que añade el objeto.
+	 * @param h tipo HardwareDTO 
 	 */
 	@Override
 	public void Anyadir(HardwareDTO h) {
@@ -35,8 +37,9 @@ public class jdbcHardwareDAO implements HardwareDAO{
 		}
 	}
 	/**
-	 * metodo eliminar que recibe un Objeto HardareDTO h y ejecuta una query que borra el objeto si coincide el codigo
-	 * con alguna de la base   
+	 * metodo Eliminar que recibe un Objeto HardareDTO h y ejecuta una query que borra el objeto si coincide el codigo
+	 * con alguna de la base.
+	 * @param h tipo HardwareDTO    
 	 */
 	@Override
 	public void Eliminar(HardwareDTO h) {
@@ -55,8 +58,9 @@ public class jdbcHardwareDAO implements HardwareDAO{
 		
 	}
 	/**
-	 * metodo modificar que recibe un objeto HardareDTO h y ejecuta una query que actualiza la base si datos si encuentra
-	 * un codigo igual al del objeto que recibe el metodo 
+	 * metodo Modificar que recibe un objeto HardareDTO h y ejecuta una query que actualiza la base si datos si encuentra
+	 * un codigo igual al del objeto que recibe el metodo .
+	 * @param h tipo HardwareDTO. 
 	 */
 	@Override
 	public void Modificar(HardwareDTO h) {

@@ -15,9 +15,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.jdbcLoginDAO;
-
+/**declaracion de la clase LoginController
+ * 
+ * @author Adrian y Samuel
+ *@version 06/06/19
+ */
 public class LoginController  {
-    
+	 //declaracion de los atributos privados
+		/**
+		 * Declaracion de los atributos privados de FXML
+		 * 
+		 */	
     @FXML
     private Label label;
     @FXML
@@ -30,20 +38,34 @@ public class LoginController  {
     private Label invalid_label;
     @FXML
     private Button button;
-    
+    /**
+	    * Declaracion de los atributos privados de la clase que no corresponden con
+	    * el FXML y llamar a la clase jdbcLoginDAO y SelectorMenuController
+	    */
     private jdbcLoginDAO login;
     
     private SelectorMenuController smc;
     
     
-    
+    /**
+     * creacion del constructor por defecto de la clase
+     */
     public LoginController() {
     	this.login= new jdbcLoginDAO(); 
     	this.smc= new SelectorMenuController();
     }
     
 
-    
+    /**
+     * El metodo handleButtonAction recoge los datos de los TextFields username_box y password_box y con ellos se forma un Objeto LoginDTO
+     * el cual se comprobará si cumple las condiciones del metodo login de la clase jdbcHardwareDAO.
+     * Si se cumple las condiciones se tendrá acceso al Stage app_stage que crea un Scene basado el el FXML selectorMenu.fxml,
+     * además de pasar el String nombre y contraseña de sus respectivos TextFields al SelectorMenuController para crear las condiciones 
+     * de entrada de usuarios.  
+     * Si no aparecerá el invalid_label indicando que el usuario o la contraseña es incorrecta.
+     * @param event tipo ActionEvent
+     * @throws IOException
+     */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
     	  	
