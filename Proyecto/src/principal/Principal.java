@@ -9,14 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 /**
- * declaracion de la clase Principal que se extiende a Application
+ * Declaracion de la clase Principal que se extiende a Application
  * @author Adrian y Samuel
  * @version 6/06/19
  *
  */
 public class Principal extends Application {
 	/**
-	 * El metodo start de la clase Principal llama al Stage primaryStage e inicia el FXML inicio.fxml del package view 
+	 * El Metodo start de la clase Principal llama al Stage primaryStage e inicia el FXML inicio.fxml del package view 
 	 */
 	public void start(Stage primaryStage) {
 		Parent root;
@@ -30,7 +30,7 @@ public class Principal extends Application {
 		}
 	}
 	/**
-	 * El metodo main ejecuta una aplicación con el launch.
+	 * El Metodo main ejecuta una aplicación con el launch.
 	 * @param args tipo String[]
 	 */
 	public static void main(String[] args) {

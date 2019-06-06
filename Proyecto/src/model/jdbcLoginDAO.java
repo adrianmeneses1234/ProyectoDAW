@@ -14,7 +14,7 @@ import dto.LoginDTO;
  */
 public class jdbcLoginDAO implements LoginDAO {
 	/**
-	 * El metodo boolean Login recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+	 * El Metodo boolean Login recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
 	 * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos.
 	 * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
 	 * el proceso.
@@ -49,7 +49,7 @@ public class jdbcLoginDAO implements LoginDAO {
 		}
 @Override
 /**
- * El metodo boolean LoginAdmin recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+ * El Metodo boolean LoginAdmin recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
  * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos,
  * ademas de contener el rol de Administrador.
  * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
@@ -84,7 +84,7 @@ public boolean LoginAdmin(LoginDTO l) {
 	}
 	
 /**
- * El metodo boolean LoginProfesor recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
+ * El Metodo boolean LoginProfesor recibe el objeto LoginDTO l y mediante un PreparedStatement se comprueba si 
  * el nombre y la contraseña del LoginDTO l coincide con el nombre y la contraseña guardada en la base de datos,
  * ademas de contener el rol de Profesor.
  * Si coincide el boolean es true, validando el usuario y si no coincide el boolean es falso, invalidando 
@@ -123,7 +123,7 @@ public boolean LoginProfesor(LoginDTO l) {
 
 
 /**
- * metodo Añadir que recibe un LoginDTO l y mediante un prepareStatement se ejecuta un
+ * Metodo Añadir que recibe un LoginDTO l y mediante un prepareStatement se ejecuta un
  * inset en la base de datos que añade el objeto.
  * @param l tipo LoginDTO 
  */

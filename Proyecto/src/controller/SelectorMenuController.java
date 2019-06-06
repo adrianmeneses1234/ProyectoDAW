@@ -18,7 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.jdbcLoginDAO;
-/**declaracion de la clase SelectorMenuController
+/**Declaracion de la clase SelectorMenuController
  * 
  * @author Adrian y Samuel
  *@version 06/06/19
@@ -50,7 +50,7 @@ public class SelectorMenuController{
 	private String contrasenya;
 	
 	  /**
-     * creacion del constructor por defecto de la clase
+     * Creacion del constructor por defecto de la clase
      */
 public SelectorMenuController() {
 	this.base= new jdbcLoginDAO();
@@ -125,7 +125,7 @@ private void IrInventario(ActionEvent event) throws IOException {
 	
 		
 	/**
-     * metodo setter de la clase para establecer el nombre
+     * Metodo setter de la clase para establecer el nombre
      * @param string, String parametro de tipo String que recibe para establecer el nombre 
      */
 	public void setNombre(String string) {
@@ -135,7 +135,7 @@ private void IrInventario(ActionEvent event) throws IOException {
 		
 	}
 	/**
-     * metodo setter de la clase para establecer la contraseña
+     * Metodo setter de la clase para establecer la contraseña
      * @param contraseña, String parametro de tipo String que recibe para establecer la contraseña 
      */
 	public void setContrasenya(String contraseña) {
@@ -143,14 +143,14 @@ private void IrInventario(ActionEvent event) throws IOException {
 		
 	}
 	 /**
-     *  metodo getter de la clase para conocer el nombre 
+     *  Metodo getter de la clase para conocer el nombre 
      * @return nombre , atributo de tipo String de la clase
      */
 	public String getNombre() {
 		return nombre;
 	}
 	 /**
-     *  metodo getter de la clase para conocer la contraseña 
+     *  Metodo getter de la clase para conocer la contraseña 
      * @return contraseña , atributo de tipo String de la clase
      */
 	public String getContrasenya() {

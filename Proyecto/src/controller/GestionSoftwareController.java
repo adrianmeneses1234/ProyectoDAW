@@ -28,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcSoftwareDAO;
-/**declaracion de la clase GestionSoftwareController
+/**Declaracion de la clase GestionSoftwareController
  * 
  * @author Adrian y Samuel
  *@version 06/06/19
@@ -100,7 +100,7 @@ public class GestionSoftwareController implements Initializable {
 	
 	private int posicionS;
 	 /**
-     * creacion del constructor por defecto de la clase
+     * Creacion del constructor por defecto de la clase
      */
 	public GestionSoftwareController() {
 		this.baseSoft = new jdbcSoftwareDAO();

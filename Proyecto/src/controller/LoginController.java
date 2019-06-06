@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.jdbcLoginDAO;
-/**declaracion de la clase LoginController
+/**Declaracion de la clase LoginController
  * 
  * @author Adrian y Samuel
  *@version 06/06/19
@@ -48,7 +48,7 @@ public class LoginController  {
     
     
     /**
-     * creacion del constructor por defecto de la clase
+     * Creacion del constructor por defecto de la clase
      */
     public LoginController() {
     	this.login= new jdbcLoginDAO(); 

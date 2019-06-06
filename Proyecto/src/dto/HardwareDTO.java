@@ -1,13 +1,13 @@
 package dto;
 /**
- * clase de HardwareDTO
+ * Clase de HardwareDTO
  * @author Adrian y Samuel 
- *
+ *@version 6/06/19
  */
 
 public class HardwareDTO {
 	/**
-	 * parametros de la clase HardwareDTO
+	 * Parametros de la clase HardwareDTO
 	 */
     private int codigo;
     private String nombre;
@@ -16,7 +16,7 @@ public class HardwareDTO {
     private int precio;
     private int unidades;
     /**
-     * constructor por defecto de la clase
+     * Constructor por defecto de la clase
      */
     public HardwareDTO() {
         this.codigo=0;
@@ -27,7 +27,7 @@ public class HardwareDTO {
         this.unidades=0;
     }
     /**
-     * contructor parametrizado de la clase HardwareDTO
+     * Contructor parametrizado de la clase HardwareDTO
      * @param codigo ,int codigo de identificacion
      * @param nombre ,String nombre del hardware en cuestion
      * @param descripcion ,String descripcion del objeto
@@ -44,91 +44,91 @@ public class HardwareDTO {
         this.unidades=unidades;
     }
     /**
-     *  metodo getter de la clase para conocer la unidades 
+     *  Metodo getter de la clase para conocer la unidades 
      * @return unidades , atributo de tipo int de la clase
      */
     public int getUnidades() {
         return unidades;
     }
     /**
-     * metodo setter de la clase para establecer las unidades
+     * Metodo setter de la clase para establecer las unidades
      * @param unidades, int parametro de tipo int que recibe para establecer las unidades 
      */
     public void setUnidades(int unidades) {
         this.unidades = unidades;
     }
     /**
-     * metodo getter de la clase para conocer el codigo 
+     * Metodo getter de la clase para conocer el codigo 
      * @return codigo , atributo de tipo string de la clase
      */
     public int getCodigo() {
         return codigo;
     }
     /**
-     * metodo setter de la clase para establecer el codigo
+     * Metodo setter de la clase para establecer el codigo
      * @param codigo , int parametro de tipo int que recibe para establecer las unidades
      */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
     /**
-     * metodo getter de la clase para conocer el nombre 
+     * Metodo getter de la clase para conocer el nombre 
      * @return nombre , atributo de tipo String de la clase
      */
     public String getNombre() {
         return nombre;
     }
     /**
-     * metodo setter de la clase para establecer el nombre
+     * Metodo setter de la clase para establecer el nombre
      * @param nombre , parametro de tipo String que recibe el metodo para establecer el nombre
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     /**
-     * metodo getter de la clase para conocer la descripcion
+     * Metodo getter de la clase para conocer la descripcion
      * @return descripcion , atributo de tipo String de la clase
      */
     public String getDescripcion() {
         return descripcion;
     }
     /**
-     * metodo setter para establecer la descripcion 
+     * Metodo setter para establecer la descripcion 
      * @param descripcion , parametro de tipo String que recibe la clase 
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
     /**
-     * metodo getter para conocer el año
+     * Metodo getter para conocer el año
      * @return año , devuelve el atributo año de tipo int
      */    
     public int getAnyo() {
         return anyo;
     }
     /**
-     * metodo setter para establecer el año
+     * Metodo setter para establecer el año
      * @param año parametro que recibe el metodo de tipo int 
      */
     public void setAnyo(int anyo) {
         this.anyo = anyo;
     }
     /**
-     * metodo getter para conocer el precio 
+     * Metodo getter para conocer el precio 
      * @return precio, devuelve el atributo Precio de tipo int 
      */
     public int getPrecio() {
         return precio;
     }
     /**
-     * metodo setter para establecer el precio
+     * Metodo setter para establecer el precio
      * @param precio parametro de tipo int que recibe el metodo 
      */
     public void setPrecio(int precio) {
         this.precio = precio;
     }
     /**
-     * metodo toString que devuelve una String con todos los atributos y sus valores
+     * Metodo toString que devuelve una String con todos los atributos y sus valores
      */
     @Override
     public String toString() {
@@ -137,28 +137,28 @@ public class HardwareDTO {
     }
    
     /**
-     * metodo para sumar + 1 al precio 
+     * Metodo para sumar + 1 al precio 
      * @return precio int 
      */
     public int sumarPrecio() {
         return this.precio=this.precio+1;
     }
     /**
-     * metodo para restar -1 al precio
+     * Metodo para restar -1 al precio
      * @return precio int 
      */
     public int restarPrecio() {
         return this.precio=this.precio-1;
     }
     /**
-     * metodo para sumar +1 a las unidades
+     * Metodo para sumar +1 a las unidades
      * @return unidades int 
      */
     public int sumarUnidades() {
         return this.unidades=this.unidades+1;
     }
     /**
-     * metodo para restar -1 a las unidades 
+     * Metodo para restar -1 a las unidades 
      * @return unidades int
      */
     public int restarUnidades() {

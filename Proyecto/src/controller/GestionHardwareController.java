@@ -27,7 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcHardwareDAO;
- /**declaracion de la clase GestionHardwareController
+ /**Declaracion de la clase GestionHardwareController
   * 
   * @author Adrian y Samuel
   *@version 31/05/19
@@ -97,7 +97,7 @@ public class GestionHardwareController implements Initializable {
     private jdbcHardwareDAO base;
     
     /**
-     * creacion del constructor por defecto de la clase
+     * Creacion del constructor por defecto de la clase
      */
    
     public GestionHardwareController() {

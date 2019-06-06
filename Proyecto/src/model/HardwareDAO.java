@@ -11,19 +11,19 @@ import dto.HardwareDTO;
  */
 public interface HardwareDAO {
 	/**
-	 * metodo Anyadir que recibe un HardwareDTO h y lo añade a la base
+	 * Metodo Anyadir que recibe un HardwareDTO h y lo añade a la base
 	 * @param h tipo HardwareDTO 
 	 * @throws SQLException
 	 */
 	public void Anyadir(HardwareDTO h) throws SQLException;
 	/**
-	 * metodo eliminar que recibe un HardwareDTO h y lo borra de la base
+	 * Metodo Eliminar que recibe un HardwareDTO h y lo borra de la base
 	 * @param h tipo HardwareDTO 
 	 * @throws SQLException
 	 */
 	public void Eliminar(HardwareDTO h)throws SQLException;
 	/**
-	 * metodo modificar que recibe un HardwareDTO h y lo modifica si lo encuentra en la base 
+	 * Metodo Modificar que recibe un HardwareDTO h y lo modifica si lo encuentra en la base 
 	 * @param h tipo HardwareDTO
 	 * @throws SQLException
 	 */

@@ -13,7 +13,7 @@ import dto.SoftwareDTO;
  */
 public class jdbcSoftwareDAO implements SoftwareDAO{
 	/**
-	 * metodo AnyadirSoftware que recibe un SoftwareDTO s y mediante un prepareStatement se ejecuta un
+	 * Metodo AnyadirSoftware que recibe un SoftwareDTO s y mediante un prepareStatement se ejecuta un
 	 * in set en la base de datos que añade el objeto.
 	 * @param s tipo SoftwareDTO 
 	 */
@@ -43,7 +43,7 @@ public class jdbcSoftwareDAO implements SoftwareDAO{
 		
 	}
 	/**
-	 * metodo EliminarSoftware que recibe un Objeto SoftwareDTO d y ejecuta una query que borra el objeto si coincide el codigo
+	 * Metodo EliminarSoftware que recibe un Objeto SoftwareDTO d y ejecuta una query que borra el objeto si coincide el codigo
 	 * con alguna de la base.
 	 * @param d tipo SoftwareDTO    
 	 */
@@ -63,7 +63,7 @@ public class jdbcSoftwareDAO implements SoftwareDAO{
 		
 	}
 	/**
-	 * metodo modificarSoftware que recibe un objeto SoftwareDTO d y ejecuta una query que actualiza la base si datos si encuentra
+	 * Metodo modificarSoftware que recibe un objeto SoftwareDTO d y ejecuta una query que actualiza la base si datos si encuentra
 	 * un codigo igual al del objeto que recibe el metodo .
 	 * @param d tipo SoftwareDTO. 
 	 */

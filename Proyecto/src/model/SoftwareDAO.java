@@ -11,19 +11,19 @@ import dto.SoftwareDTO;
  */
 public interface SoftwareDAO {
 	/**
-	 * metodo AnyadirSoftware que recibe un SoftwareDTO s y lo añade a la base
+	 * Metodo AnyadirSoftware que recibe un SoftwareDTO s y lo añade a la base de datos
 	 * @param s tipo SoftwareDTO 
 	 * @throws SQLException
 	 */
 		public void AnyadirSoftware(SoftwareDTO s) throws SQLException;
 		/**
-		 * metodo EliminarSoftware que recibe un SoftwareDTO s y lo borra de la base
+		 * Metodo EliminarSoftware que recibe un SoftwareDTO s y lo borra de la base de datos
 		 * @param s tipo SoftwareDTO 
 		 * @throws SQLException
 		 */
 		public void EliminarSoftware(SoftwareDTO s)throws SQLException;
 		/**
-		 * metodo modificarSoftware que recibe un SoftwareDTO s y lo modifica si lo encuentra en la base 
+		 * Metodo modificarSoftware que recibe un SoftwareDTO s y lo modifica si lo encuentra en la base de datos
 		 * @param s tipo SoftwareDTO
 		 * @throws SQLException
 		 */

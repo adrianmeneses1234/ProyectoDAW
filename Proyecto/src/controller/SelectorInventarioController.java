@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-/**declaracion de la clase SelectorInventarioController
+/**Declaracion de la clase SelectorInventarioController
  * 
  * @author Adrian y Samuel
  *@version 06/06/19

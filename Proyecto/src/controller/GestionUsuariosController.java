@@ -33,7 +33,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.conexion;
 import model.jdbcLoginDAO;
-/**declaracion de la clase GestionUsuariosController
+/**Declaracion de la clase GestionUsuariosController
  * 
  * @author Adrian y Samuel
  *@version 06/06/19

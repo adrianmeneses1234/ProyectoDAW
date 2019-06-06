@@ -12,7 +12,7 @@ import dto.HardwareDTO;
  */
 public class jdbcHardwareDAO implements HardwareDAO{
 	/**
-	 * metodo Anyadir que recibe un HardwareDTO h y mediante un prepareStatement se ejecuta un
+	 * Metodo Anyadir que recibe un HardwareDTO h y mediante un prepareStatement se ejecuta un
 	 * inset en la base de datos que añade el objeto.
 	 * @param h tipo HardwareDTO 
 	 */
@@ -37,7 +37,7 @@ public class jdbcHardwareDAO implements HardwareDAO{
 		}
 	}
 	/**
-	 * metodo Eliminar que recibe un Objeto HardareDTO h y ejecuta una query que borra el objeto si coincide el codigo
+	 * Metodo Eliminar que recibe un Objeto HardareDTO h y ejecuta una query que borra el objeto si coincide el codigo
 	 * con alguna de la base.
 	 * @param h tipo HardwareDTO    
 	 */
@@ -58,7 +58,7 @@ public class jdbcHardwareDAO implements HardwareDAO{
 		
 	}
 	/**
-	 * metodo Modificar que recibe un objeto HardareDTO h y ejecuta una query que actualiza la base si datos si encuentra
+	 * Metodo Modificar que recibe un objeto HardareDTO h y ejecuta una query que actualiza la base si datos si encuentra
 	 * un codigo igual al del objeto que recibe el metodo .
 	 * @param h tipo HardwareDTO. 
 	 */
